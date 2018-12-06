@@ -88,6 +88,9 @@ public class LDJ_AIManager : MonoBehaviour
     #endregion
 
     #region Methods
+
+    /*OLD
+
     /// <summary>
     /// Get every linked point from the last entry until reaching the starting position
     /// </summary>
@@ -184,6 +187,7 @@ public class LDJ_AIManager : MonoBehaviour
         }
         return false;
     }
+    */
 
     /// <summary>
     /// Change speed value using a percentage
@@ -203,6 +207,7 @@ public class LDJ_AIManager : MonoBehaviour
         OnSpeedModified?.Invoke(leaderSpeed);
     }
 
+    /*OLD
     /// <summary>
     /// Get the point with the best heuristic cost from a list 
     /// Remove this point from the list and return it
@@ -236,6 +241,7 @@ public class LDJ_AIManager : MonoBehaviour
     {
         return Vector3.Distance(_p1.Position, _p2.Position);
     }
+    */
 
     /// <summary>
     /// CALLED WHEN THE HORDE IS HIT 
@@ -253,7 +259,7 @@ public class LDJ_AIManager : MonoBehaviour
     {
         SpawnAgents();
         isReady = true;
-        //leader.SetDestination();
+
     }
 
     public void LinkAllPoints() => NavigationPoints.ForEach(p => p.LinkPoint());
@@ -263,13 +269,15 @@ public class LDJ_AIManager : MonoBehaviour
     /// </summary>
     void SpawnAgents()
     {
+        leader.SetSpeed(leaderSpeed);
         Vector3 _spawnPosition;
         for (int i = 0; i < agentCount; i++)
         {
             _spawnPosition = new Vector3(leader.transform.position.x + Random.Range(-spawnRange / 2, spawnRange / 2), leader.transform.position.y, leader.transform.position.z + Random.Range(-spawnRange / 2, spawnRange / 2));
             LDJ_AIAgent _agent = Instantiate(Resources.Load<LDJ_AIAgent>(leader.name) as LDJ_AIAgent, _spawnPosition, Quaternion.identity);
             if(hordeParent)_agent.transform.SetParent(hordeParent); 
-            allAgents.Add(_agent); 
+            allAgents.Add(_agent);
+            _agent.SetSpeed(leaderSpeed); 
         }
         //Debug.Log("Sound");
        // AkSoundEngine.PostEvent("Play_Horde", gameObject);
@@ -301,6 +309,7 @@ public class LDJ_AIManager : MonoBehaviour
         {
             InitHorde(); 
         }
+        GetComponent<Collider>().enabled = false; 
     }
 
     private void Start()

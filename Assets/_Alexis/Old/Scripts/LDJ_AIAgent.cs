@@ -112,7 +112,6 @@ public class LDJ_AIAgent : MonoBehaviour
             if (!LDJ_AIManager.Instance.IsReady || !LDJ_AIManager.Instance.TargetTransform) return;
             if(!isUsingNavMesh)
             {
-                Debug.Log("Not Using Nav Mesh"); 
                 return; 
             }
             if (goblinAgent.CalculatePath(LDJ_AIManager.Instance.TargetTransform.position, goblinAgent.path))
@@ -236,7 +235,7 @@ public class LDJ_AIAgent : MonoBehaviour
             {
                 _globalDir -= Vector3.ClampMagnitude(_obstaclesDirections[i], 1);
             }
-            _globalDir += Vector3.ClampMagnitude(GetDirectionFromPosition(LDJ_AIManager.Instance.TargetTransform.position),1);
+            _globalDir += Vector3.ClampMagnitude(GetDirectionFromPosition(goblinAgent.nextPosition),1);
             velocity = Vector3.ClampMagnitude(_globalDir, 1);
         }         
     }
@@ -264,6 +263,7 @@ public class LDJ_AIAgent : MonoBehaviour
         transform.LookAt(transform.position + velocity); 
     }
 
+    #region OLD
     /* OLD
     /// <summary>
     /// SET DESTINATION TO THE TARGET
@@ -282,7 +282,7 @@ public class LDJ_AIAgent : MonoBehaviour
         
     }
     */
-
+    #endregion
     /// <summary>
     /// SET THE LEADER
     /// </summary>
@@ -292,7 +292,7 @@ public class LDJ_AIAgent : MonoBehaviour
         velocity = Vector3.zero; 
     }
 
-    void SetSpeed(float _newSpeed)
+    public void SetSpeed(float _newSpeed)
     {
         speed = _newSpeed;
         goblinAgent.speed = speed; 
