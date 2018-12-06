@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System; 
+using System;
+using System.Linq; 
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random; 
@@ -14,7 +15,7 @@ using Random = UnityEngine.Random;
  * -> Gérer mieux le path des autres goblins
  * 
  */
-[RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(BoxCollider)), RequireComponent(typeof(NavMeshAgent))]
 public class LDJ_AIAgent : MonoBehaviour
 {
     #region Fields and properties
@@ -30,10 +31,26 @@ public class LDJ_AIAgent : MonoBehaviour
 
     [SerializeField] float updateTick = .5f;
 
+    /*OLD
     List<Vector3> agentPath = new List<Vector3>();
+    */
+
     public bool canMove = false;
 
-    int pathIndex = 0;
+    [SerializeField] NavMeshAgent goblinAgent;
+    public NavMeshAgent GoblinAgent { get { return goblinAgent; } }
+    bool isUsingNavMesh = true; 
+
+    public Vector3 DetectionRange
+    {
+        get
+        {
+            float _limit = LDJ_AIManager.Instance.SpawnRange;
+            return new Vector3(_limit, 1, _limit); 
+        }
+    }
+
+    // int pathIndex = 0;
     #endregion
 
     #region Methods
@@ -49,6 +66,8 @@ public class LDJ_AIAgent : MonoBehaviour
             return;
         }
         #region LEADER
+        #region old
+        /*OLD
         if (isLeader)
         {
             if (LDJ_AIManager.Instance.IsCalculating) return;
@@ -83,6 +102,22 @@ public class LDJ_AIAgent : MonoBehaviour
             if (canMove)
             {
                 velocity = Vector3.ClampMagnitude(GetDirectionFromPosition(agentPath[pathIndex]), 1);
+            }
+            return; 
+        }*/
+        #endregion
+
+        if(isLeader)
+        {
+            if (!LDJ_AIManager.Instance.IsReady || !LDJ_AIManager.Instance.TargetTransform) return;
+            if(!isUsingNavMesh)
+            {
+                Debug.Log("Not Using Nav Mesh"); 
+                return; 
+            }
+            if (goblinAgent.CalculatePath(LDJ_AIManager.Instance.TargetTransform.position, goblinAgent.path))
+            {
+                goblinAgent.SetDestination(LDJ_AIManager.Instance.TargetTransform.position); 
             }
             return; 
         }
@@ -167,6 +202,45 @@ public class LDJ_AIAgent : MonoBehaviour
         #endregion
     }
 
+    void Detect()
+    {
+        if (!isLeader) return;
+        Collider[] _coll = Physics.OverlapBox(transform.position + (Vector3.up * .5f), DetectionRange);
+        _coll = _coll.Select(c => c).Where(c => !c.GetComponent<LDJ_AIAgent>()).ToArray();
+        _coll = _coll.Select(c => c).Where(c => c.gameObject.layer != LayerMask.NameToLayer("Ground")).ToArray();
+        if(_coll.Length == 0)
+        {
+            if (!isUsingNavMesh)
+            {
+                isUsingNavMesh = true;
+                goblinAgent.isStopped = false;
+                goblinAgent.SetDestination(LDJ_AIManager.Instance.TargetTransform.position);
+            }
+            return; 
+        }
+        //if (!isUsingNavMesh) return; 
+        if(_coll.ToList().Any(c => c.GetComponent<LDJ_Player>()))
+        {
+            LDJ_Player _p = _coll.Select(p => p.GetComponent<LDJ_Player>()).FirstOrDefault();
+            // REACH THE PLAYER
+            goblinAgent.SetDestination(_p.transform.position); 
+        }
+        else
+        {
+            //AVOID OBSTACLE
+            Vector3[] _obstaclesDirections = _coll.Where(c => c.gameObject.layer == LayerMask.NameToLayer("Wall")).Select(c => GetDirectionFromPosition(c.ClosestPoint(transform.position))).ToArray();
+            isUsingNavMesh = false;
+            goblinAgent.isStopped = true;
+            Vector3 _globalDir = Vector3.zero; 
+            for (int i = 0; i < _obstaclesDirections.Length; i++)
+            {
+                _globalDir -= Vector3.ClampMagnitude(_obstaclesDirections[i], 1);
+            }
+            _globalDir += Vector3.ClampMagnitude(GetDirectionFromPosition(LDJ_AIManager.Instance.TargetTransform.position),1);
+            velocity = Vector3.ClampMagnitude(_globalDir, 1);
+        }         
+    }
+
     /// <summary>
     /// GET THE DIRECTION BETWEEN THE AGENT POSITION AND ANOTHER POSITION
     /// </summary>
@@ -182,7 +256,7 @@ public class LDJ_AIAgent : MonoBehaviour
     /// </summary>
     void MoveAgent()
     {
-        if (!LDJ_AIManager.Instance.IsReady ) return;
+        if (!LDJ_AIManager.Instance.IsReady || isLeader && isUsingNavMesh) return;
         velocity = Vector3.ClampMagnitude(velocity, 1);
         velocity.y = 0;
         //APPLY VELOCITY TO THE POSITION OF THE AGENT
@@ -190,6 +264,7 @@ public class LDJ_AIAgent : MonoBehaviour
         transform.LookAt(transform.position + velocity); 
     }
 
+    /* OLD
     /// <summary>
     /// SET DESTINATION TO THE TARGET
     /// </summary>
@@ -204,7 +279,9 @@ public class LDJ_AIAgent : MonoBehaviour
             agentPath = _tmp;
             canMove = true;
         }
+        
     }
+    */
 
     /// <summary>
     /// SET THE LEADER
@@ -215,7 +292,11 @@ public class LDJ_AIAgent : MonoBehaviour
         velocity = Vector3.zero; 
     }
 
-    void SetSpeed(float _newSpeed) => speed = _newSpeed;
+    void SetSpeed(float _newSpeed)
+    {
+        speed = _newSpeed;
+        goblinAgent.speed = speed; 
+    }
     #endregion
 
     #region UnityMethods
@@ -236,6 +317,13 @@ public class LDJ_AIAgent : MonoBehaviour
         {
             SetLeader();
         }
+        else
+        {
+            goblinAgent = GetComponent<NavMeshAgent>();
+            goblinAgent.enabled = true;
+            goblinAgent.speed = speed;
+            InvokeRepeating("Detect", Random.value * updateTick, updateTick); 
+        }
         InvokeRepeating("BoidBehaviour", Random.value * updateTick, updateTick);
     }
 
@@ -248,10 +336,6 @@ public class LDJ_AIAgent : MonoBehaviour
     {
         Gizmos.color = Color.red; 
         Gizmos.DrawLine(transform.position, transform.position + velocity);
-        return; 
-        if (!LDJ_AIManager.Instance) return;
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, LDJ_AIManager.Instance.SeparationRange);
     }
     #endregion
 
