@@ -5898,7 +5898,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isControllable: 1
   isInvulnerable: 0
-  speed: 1
+  speed: 10
   throwForceVelocity: 1
   currency: 0
   health: 3
