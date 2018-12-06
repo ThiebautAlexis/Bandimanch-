@@ -1,25 +1,14 @@
 fileFormatVersion: 2
-guid: a6390cf9c64b88548bd4d6e192e0e93b
+guid: 28fcd3058ce9cc740b16cbbdc677e568
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: crystal
-    100002: //RootNode
-    100004: lampaire
-    100006: lampaire1
-    100008: transform29
-    100010: transform30
-    400000: crystal
-    400002: //RootNode
-    400004: lampaire
-    400006: lampaire1
-    400008: transform29
-    400010: transform30
-    2100000: lambert25
-    2100002: lambert24
-    2300000: lampaire1
-    3300000: lampaire1
-    4300000: lampaire1
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCylinder2
   externalObjects: {}
   materials:
     importMaterials: 1
