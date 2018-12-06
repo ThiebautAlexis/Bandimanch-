@@ -1,22 +1,14 @@
 fileFormatVersion: 2
-guid: 74b9ba17328477d4eb9a1d66cc88c567
+guid: ef3a7ada49e49a64cb940663f2e8d02a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Crystal
-    100002: //RootNode
-    100004: crystal_support
-    400000: Crystal
-    400002: //RootNode
-    400004: crystal_support
-    2100000: lambert22
-    2100002: lambert23
-    2300000: Crystal
-    2300002: crystal_support
-    3300000: Crystal
-    3300002: crystal_support
-    4300000: Crystal
-    4300002: crystal_support
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pSolid2
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -1,21 +1,14 @@
 fileFormatVersion: 2
-guid: cc7b6e6143182cd4cb27c254f27e7448
+guid: 046e5e90ea2f0e2408e754a7b56264a7
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: base
-    100002: //RootNode
-    100004: couvercle
-    400000: base
-    400002: //RootNode
-    400004: couvercle
-    2100000: lambert14
-    2300000: base
-    2300002: couvercle
-    3300000: base
-    3300002: couvercle
-    4300000: base
-    4300002: couvercle
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCylinder1
   externalObjects: {}
   materials:
     importMaterials: 1
