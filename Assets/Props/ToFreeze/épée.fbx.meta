@@ -1,31 +1,14 @@
 fileFormatVersion: 2
-guid: b4a5bb0f3ba122c4aaa9d5b70f2ce354
+guid: 157df758fb1cbae4f967a24b01d6a540
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: anneau
-    100002: Arche
-    100004: //RootNode
-    100006: Gemme
-    100008: support_gem
-    400000: anneau
-    400002: Arche
-    400004: //RootNode
-    400006: Gemme
-    400008: support_gem
-    2100000: lambert19
-    2300000: anneau
-    2300002: Arche
-    2300004: Gemme
-    2300006: support_gem
-    3300000: anneau
-    3300002: Arche
-    3300004: Gemme
-    3300006: support_gem
-    4300000: support_gem
-    4300002: Arche
-    4300004: Gemme
-    4300006: anneau
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert15
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: "\xE9p\xE9e"
   externalObjects: {}
   materials:
     importMaterials: 1
