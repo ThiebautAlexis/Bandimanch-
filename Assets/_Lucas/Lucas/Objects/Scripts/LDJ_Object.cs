@@ -120,7 +120,7 @@ public class LDJ_Object : MonoBehaviour
                 break;
             case ObjectType.Treasure:
                 break;
-            case ObjectType.Axe:
+            case ObjectType.Weapon:
                 //AkSoundEngine.PostEvent("Play_Axe_Throw", gameObject);
                 break;
             default:

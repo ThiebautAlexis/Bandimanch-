@@ -7,7 +7,7 @@ public enum ObjectType
     Cooker,
     Food,
     Treasure,
-    Axe
+    Weapon
 }
 
 [Serializable]
@@ -64,7 +64,7 @@ public class LDJ_ObjectCharacteristics
         get { return force; }
     }
     // The maximum stack amount of this object
-    [SerializeField] private int maxStackAmount = 1;
+    [SerializeField] private int maxStackAmount = 999;
     public int MaxStackAmount
     {
         get { return maxStackAmount; }
@@ -84,7 +84,7 @@ public class LDJ_ObjectCharacteristics
 
     [Header("Object Type Properties :")]
     // This object type
-    [SerializeField] private ObjectType objectType = ObjectType.Axe;
+    [SerializeField] private ObjectType objectType = ObjectType.Weapon;
     public ObjectType ObjectType
     {
         get { return objectType; }
