@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114861744481163168}
   - component: {fileID: 65340473307771542}
   - component: {fileID: 54660900513614074}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Morgenstern
   m_TagString: Untagged
   m_Icon: {fileID: 0}

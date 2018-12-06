@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114393038522712696}
   - component: {fileID: 65325667271547084}
   - component: {fileID: 54866598164365934}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Poele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
