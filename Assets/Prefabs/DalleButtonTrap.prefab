@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23638855736596600}
   - component: {fileID: 114157169337600346}
   m_Layer: 0
-  m_Name: dalle
+  m_Name: DalleButtonTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1054035289201300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.819818, y: 16.958977, z: -0.08}
+  m_LocalPosition: {x: -27.768408, y: 16.399479, z: 0.0021247864}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 040000000500000006000000040000000700000005000000
@@ -149,7 +149,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 08000000090000000a000000080000000b00000009000000
@@ -177,7 +177,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 0c0000000d0000000e0000000c0000000e0000000f000000
@@ -205,7 +205,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 100000001100000012000000100000001300000011000000
@@ -233,7 +233,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 140000001500000016000000140000001700000015000000
@@ -261,7 +261,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 18000000190000001a000000180000001a0000001b000000
@@ -289,7 +289,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 1c0000001d0000001e0000001c000000270000001d000000
@@ -317,7 +317,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 1f00000020000000210000001f0000002100000022000000
@@ -345,7 +345,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 230000002400000025000000230000002600000024000000
@@ -373,7 +373,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 28000000290000002a000000280000002e00000029000000
@@ -401,7 +401,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 2b0000002c0000002d0000002b0000002f0000002c000000
@@ -429,7 +429,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 300000003100000032000000300000003200000033000000
@@ -457,7 +457,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 340000003500000036000000340000003700000035000000
@@ -485,7 +485,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 38000000390000003a000000380000003b00000039000000
@@ -513,7 +513,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 3c0000003d0000003e0000003c0000003e0000003f000000
@@ -541,7 +541,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 400000004100000042000000400000004200000043000000
@@ -569,7 +569,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 440000004500000046000000440000004700000045000000
@@ -597,7 +597,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 48000000490000004a000000480000004a0000004b000000
@@ -625,7 +625,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 4c0000004d0000004e0000004c0000004f0000004d000000
@@ -653,7 +653,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   - _indices: 500000005100000052000000500000005300000051000000
@@ -681,7 +681,7 @@ MonoBehaviour:
       localPivot: {x: 0, y: 0}
       localSize: {x: 0, y: 0}
       anchor: 9
-    _mat: {fileID: 2100000, guid: d02dda060ba6b814ab57be3947878177, type: 3}
+    _mat: {fileID: 2100000, guid: e36e03c7eedf8b449b02ede8cad630f3, type: 2}
     manualUV: 1
     textureGroup: -1
   _sharedIndices:
