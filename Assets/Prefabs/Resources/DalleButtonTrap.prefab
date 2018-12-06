@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33351333878354548}
   - component: {fileID: 23448751966964056}
   - component: {fileID: 114826341237860518}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DalleButtonTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
