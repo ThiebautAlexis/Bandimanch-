@@ -35,7 +35,7 @@ public class LDJ_AIManager : MonoBehaviour
 
     [Header("Spawning Agents")]
     [SerializeField, Range(10, 500)] int agentCount = 25;
-    [SerializeField, Range(5, 30)] float spawnRange = 10;
+    [SerializeField, Range(1, 30)] float spawnRange = 10;
     public float SpawnRange { get { return spawnRange; } } 
 
     [Header("Target")]
@@ -253,7 +253,7 @@ public class LDJ_AIManager : MonoBehaviour
     {
         SpawnAgents();
         isReady = true;
-        leader.SetDestination();
+        //leader.SetDestination();
     }
 
     public void LinkAllPoints() => NavigationPoints.ForEach(p => p.LinkPoint());
@@ -284,7 +284,12 @@ public class LDJ_AIManager : MonoBehaviour
             Instance = this;
         }
         else Destroy(this);
-        if (!targetTransform) targetTransform = FindObjectOfType<LDJ_Player>().transform; 
+        if (!targetTransform)
+        {
+            LDJ_Player _p;
+            if (_p = FindObjectOfType<LDJ_Player>())
+                targetTransform = _p.transform; 
+        }
         if (leader == null) return;
         leader.IsLeader = true;
     }
@@ -300,6 +305,11 @@ public class LDJ_AIManager : MonoBehaviour
 
     private void Start()
     {
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(leader.transform.position, spawnRange); 
     }
     #endregion
 }
