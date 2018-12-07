@@ -181,15 +181,6 @@ public class LDJ_UIManager : MonoBehaviour
         LDJ_UIInventoryItem _newItem = Instantiate(Resources.Load<LDJ_UIInventoryItem>("InventoryItem"), fullInventoryAnchor.transform, true);
         _newItem.Init(_object);
 
-        // If this is the first grabed object, activate the selected object element
-        if (inventoryItems == null || inventoryItems.Count == 0)
-        {
-            if (!fullInventoryAnchor.activeInHierarchy)
-            {
-                selectedObjectAnchor.SetActive(true);
-            }
-        }
-
         // Add the instantiated object to the list
         inventoryItems.Add(_newItem);
 
