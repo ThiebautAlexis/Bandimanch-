@@ -27,7 +27,11 @@ GameObject:
   - component: {fileID: 195839689757943710}
   - component: {fileID: 114281282484760760}
   m_Layer: 12
+<<<<<<< HEAD
   m_Name: GobelinOBJ
+=======
+  m_Name: Gobelin 1
+>>>>>>> master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53107,7 +53111,11 @@ NavMeshAgent:
   m_Radius: 0.37322557
   m_Speed: 3.5
   m_Acceleration: 8
+<<<<<<< HEAD
   avoidancePriority: 99
+=======
+  avoidancePriority: 50
+>>>>>>> master
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
