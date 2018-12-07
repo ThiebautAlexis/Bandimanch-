@@ -10,6 +10,7 @@ public class LDJ_GoblinsManager : MonoBehaviour
     #region Events
     public event Action OnHordeActivated;
     public event Action OnHordeHit;
+    public event Action OnTargetHit; 
     public Action<float> OnSpeedModified; 
     #endregion
 
@@ -50,6 +51,11 @@ public class LDJ_GoblinsManager : MonoBehaviour
     #endregion
 
     #region Methods
+    void ApplyHordeReset()
+    {
+
+    }
+
     private void InitHorde()
     {
         if(instanciedAgent)
@@ -59,6 +65,7 @@ public class LDJ_GoblinsManager : MonoBehaviour
             {
                 _goblin = Instantiate(instanciedAgent, transform.position + new Vector3(Random.Range(0, spawningRange), 0, Random.Range(0, spawningRange)), Quaternion.identity, hordeParent ? hordeParent : null);
                 OnSpeedModified += _goblin.SetSpeed; 
+                //_goblin.OnHitPlayer += 
                 if (i == 0)
                 {
                     leader = _goblin;

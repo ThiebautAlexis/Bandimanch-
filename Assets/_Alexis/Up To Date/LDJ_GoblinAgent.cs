@@ -10,7 +10,8 @@ using UnityEngine.AI;
 public class LDJ_GoblinAgent : MonoBehaviour
 {
     #region Events 
-    Func<IEnumerator> RandomRadiusCallback; 
+    Func<IEnumerator> RandomRadiusCallback;
+    public event Action OnHitPlayer; 
     #endregion
 
     #region Fields and properties 
@@ -24,24 +25,40 @@ public class LDJ_GoblinAgent : MonoBehaviour
     #endregion
 
     #region Methods
-    public void InitAgent(float _newSpeed, Transform _target)
+    /// <summary>
+    /// Init the agent with a speed and a target to chase
+    /// </summary>
+    /// <param name="_baseSpeed">base speed of the agent</param>
+    /// <param name="_target">target of the agent</param>
+    public void InitAgent(float _baseSpeed, Transform _target)
     {
         if (!agent) agent = GetComponent<NavMeshAgent>(); 
-        agent.speed = _newSpeed;
+        agent.speed = _baseSpeed;
         target = _target;
     }
 
+    /// <summary>
+    /// Set a new speed to the agent
+    /// </summary>
+    /// <param name="_newSpeed"></param>
     public void SetSpeed(float _newSpeed)
     {
         agent.speed = _newSpeed;
     }
 
+    /// <summary>
+    /// Ping pong between a min and max values 
+    /// </summary>
     private void UpdateAgentRadius()
     {
         currentAvoidanceRange = Mathf.Clamp(Mathf.PingPong(Time.time, maxAvoidanceRangeValue), avoidanceRangeMin, avoidanceRangeMax);
         agent.radius = currentAvoidanceRange; 
     }
 
+    /// <summary>
+    /// Get a random value for the maximum radius of the agent
+    /// </summary>
+    /// <returns></returns>
     IEnumerator GetRandomRadius()
     {
         maxAvoidanceRangeValue = Random.Range(avoidanceRangeMin, avoidanceRangeMax);
@@ -50,10 +67,21 @@ public class LDJ_GoblinAgent : MonoBehaviour
         yield break;
     }
 
+    /// <summary>
+    /// Calculate the path and move to the target
+    /// </summary>
     void MoveToTarget()
     {
         if (!agent || !target) return; 
-        agent.SetDestination(target.position);
+        if(agent.CalculatePath(target.position, agent.path))
+            agent.SetDestination(target.position); 
+    }
+
+
+    void HitPlayer(LDJ_Player _playerHit)
+    {
+        _playerHit.TakeDamage();
+        OnHitPlayer?.Invoke(); 
     }
     #endregion
 
@@ -62,7 +90,6 @@ public class LDJ_GoblinAgent : MonoBehaviour
     {
         RandomRadiusCallback += GetRandomRadius; 
     }
-
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -79,7 +106,7 @@ public class LDJ_GoblinAgent : MonoBehaviour
         LDJ_Player _player = null;
         if (_player = _collision.transform.GetComponent<LDJ_Player>())
         {
-            _player.TakeDamage();
+            HitPlayer(_player); 
         }
     }
     private void OnDrawGizmos()
