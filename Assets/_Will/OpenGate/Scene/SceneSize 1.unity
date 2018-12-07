@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -902,7 +902,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-3231062
+  m_Name: pb_Mesh14226
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1124,10 +1124,10 @@ MonoBehaviour:
   isActif: 0
   isHeavy: 1
   radiusGizmo: 1
-  rangeGizmo: 2.7
-  heightGizmo: 1
-  actifColor: {r: 0.07986761, g: 0.8301887, b: 0, a: 1}
-  unactifColor: {r: 0.7924528, g: 0, b: 0, a: 1}
+  rangeGizmo: 8.17
+  heightGizmo: 7.52
+  actifColor: {r: 0, g: 0.5849056, b: 0.048664413, a: 1}
+  unactifColor: {r: 0.7735849, g: 0, b: 0, a: 1}
   playerAdventurer: {fileID: 1355037394}
   objectToInteract: {fileID: 1023141506}
 --- !u!65 &272951843
@@ -1178,7 +1178,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh95062
+  m_Name: pb_Mesh14268
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1355,7 +1355,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 538772201}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.9876412, z: -0}
+  m_LocalPosition: {x: 0, y: 0.9876412, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 280540095}
@@ -2217,7 +2217,7 @@ Animator:
   m_GameObject: {fileID: 538772201}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c25508e74e835e54581cc8da05dc9aed, type: 2}
+  m_Controller: {fileID: 9100000, guid: af743e88bff648f40aa0f2efe0a72485, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2386,7 +2386,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh95024
+  m_Name: pb_Mesh14238
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4433,7 +4433,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1023141506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.9876412, z: -0}
+  m_LocalPosition: {x: 0, y: 0.9876412, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1197038818}
@@ -4448,7 +4448,7 @@ Animator:
   m_GameObject: {fileID: 1023141506}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b646c16e13cc56945b958ed829ffa139, type: 2}
+  m_Controller: {fileID: 9100000, guid: b25d475b6ef12754fbc96c79acd91da3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7368,7 +7368,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh95006
+  m_Name: pb_Mesh14210
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -8993,8 +8993,8 @@ MonoBehaviour:
   isActif: 0
   isHeavy: 1
   radiusGizmo: 1
-  rangeGizmo: 2.7
-  heightGizmo: 1
+  rangeGizmo: 9.46
+  heightGizmo: 6.18
   actifColor: {r: 0.07986761, g: 0.8301887, b: 0, a: 1}
   unactifColor: {r: 0.7924528, g: 0, b: 0, a: 1}
   playerAdventurer: {fileID: 1355037394}
@@ -9171,7 +9171,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-3292074
+  m_Name: pb_Mesh14378
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
