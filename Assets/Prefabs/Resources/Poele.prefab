@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114393038522712696}
   - component: {fileID: 65325667271547084}
   - component: {fileID: 54866598164365934}
+  - component: {fileID: 208720066271530656}
   m_Layer: 11
   m_Name: Poele
   m_TagString: Untagged
@@ -5056,3 +5057,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   rigidbody: {fileID: 54866598164365934}
+--- !u!208 &208720066271530656
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1493202125967132}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

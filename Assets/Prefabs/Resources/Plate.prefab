@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114507002612949316}
   - component: {fileID: 65534294084443614}
   - component: {fileID: 54369052318143186}
+  - component: {fileID: 208500293468916440}
   m_Layer: 11
   m_Name: Plate
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1674180889000892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.8631763, y: 0, z: 28.218618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2726,3 +2727,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   rigidbody: {fileID: 54369052318143186}
+--- !u!208 &208500293468916440
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674180889000892}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.30600002, y: 0.034, z: 0.32200003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.036000002, z: 0}
+  m_TimeToStationary: 0.5
