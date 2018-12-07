@@ -105,6 +105,7 @@ public class LDJ_Player : MonoBehaviour
                 isControllable = false;
                 OnDied?.Invoke();
                 animator.SetTrigger("Death");
+                
 
                 // Sound
                // AkSoundEngine.PostEvent("Stop_Footsetps", gameObject);
@@ -232,6 +233,11 @@ public class LDJ_Player : MonoBehaviour
     #endregion
     #endregion
 
+    #region Singleton
+    // The singleton instance of this script
+    public static LDJ_Player Instance = null;
+    #endregion
+
     #region Methods
     #region Original Methods
     // Makes the character interact with the nearest object in range
@@ -322,7 +328,7 @@ public class LDJ_Player : MonoBehaviour
         // (Des)Activate the menu
         if (Input.GetButtonDown(menuInput))
         {
-            LDJ_UIManager.Instance.OpenMenu(true);
+            LDJ_UIManager.Instance.PauseMenu();
             return;
         }
 
@@ -623,6 +629,10 @@ public class LDJ_Player : MonoBehaviour
     // Awake is called when the script instance is being loaded
     private void Awake()
     {
+        // Sert this as singleton or destroy this
+        if (!Instance) Instance = this;
+        else Destroy(this);
+
         // Get the required component references if not having them
         if (!collider) collider = GetComponent<BoxCollider>();
         if (!rigidbody) rigidbody = GetComponent<Rigidbody>();
@@ -631,6 +641,15 @@ public class LDJ_Player : MonoBehaviour
 
         // Get the half extents of the box collider to use in overlap
         halfExtents = Vector3.Scale(collider.size, collider.transform.lossyScale) / 2;
+    }
+
+    private void OnDestroy()
+    {
+        // Remove the static instance if this is this
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 
     // Implement OnDrawGizmos if you want to draw gizmos that are also pickable and always drawn

@@ -73,13 +73,9 @@ public class LDJ_GoblinAgent : MonoBehaviour
     /// </summary>
     void MoveToTarget()
     {
-<<<<<<< HEAD
         if (!agent || !target) return;
-=======
-        if (!agent || !target) return; 
->>>>>>> master
         //if(agent.CalculatePath(target.position, agent.path))
-            agent.SetDestination(target.position); 
+        agent.SetDestination(target.position); 
     }
     
     void HitAgent()
