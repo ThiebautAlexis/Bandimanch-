@@ -11,7 +11,8 @@ public class LDJ_GoblinAgent : MonoBehaviour
 {
     #region Events 
     Func<IEnumerator> RandomRadiusCallback;
-    public event Action OnHitPlayer; 
+    public event Action OnHitPlayer;
+    public event Action OnAgentHit; 
     #endregion
 
     #region Fields and properties 
@@ -73,10 +74,15 @@ public class LDJ_GoblinAgent : MonoBehaviour
     void MoveToTarget()
     {
         if (!agent || !target) return; 
-        if(agent.CalculatePath(target.position, agent.path))
+        //if(agent.CalculatePath(target.position, agent.path))
             agent.SetDestination(target.position); 
     }
-
+    
+    void HitAgent()
+    {
+        Debug.Log("Agent Hit"); 
+        OnAgentHit?.Invoke(); 
+    }
 
     void HitPlayer(LDJ_Player _playerHit)
     {

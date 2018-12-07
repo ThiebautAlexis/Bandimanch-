@@ -10,7 +10,7 @@ public class LDJ_GoblinsManager : MonoBehaviour
     #region Events
     public event Action OnHordeActivated;
     public event Action OnHordeHit;
-    public event Action OnTargetHit; 
+    public event Action OnPlayerHit; 
     public Action<float> OnSpeedModified; 
     #endregion
 
@@ -27,7 +27,10 @@ public class LDJ_GoblinsManager : MonoBehaviour
     [SerializeField, Range(1, 50)] float currentSpeed = 1;
     [SerializeField, Range(1, 100)] int loosingSpeedPercentage = 10; 
 
-    private LDJ_GoblinAgent leader; 
+    private LDJ_GoblinAgent leader;
+
+    [Header("Invincibility Settings")]
+    private bool canMove = true;
     #endregion
 
     #region UnityMethods
@@ -51,11 +54,6 @@ public class LDJ_GoblinsManager : MonoBehaviour
     #endregion
 
     #region Methods
-    void ApplyHordeReset()
-    {
-
-    }
-
     private void InitHorde()
     {
         if(instanciedAgent)
@@ -64,8 +62,8 @@ public class LDJ_GoblinsManager : MonoBehaviour
             for (int i = 0; i < instanceCounts; i++)
             {
                 _goblin = Instantiate(instanciedAgent, transform.position + new Vector3(Random.Range(0, spawningRange), 0, Random.Range(0, spawningRange)), Quaternion.identity, hordeParent ? hordeParent : null);
-                OnSpeedModified += _goblin.SetSpeed; 
-                //_goblin.OnHitPlayer += 
+                OnSpeedModified += _goblin.SetSpeed;
+                _goblin.OnAgentHit += HitHorde; 
                 if (i == 0)
                 {
                     leader = _goblin;
@@ -78,7 +76,6 @@ public class LDJ_GoblinsManager : MonoBehaviour
         }
         OnHordeActivated -= InitHorde; 
     }
-
 
     /// <summary>
     /// Change speed value using a percentage
@@ -105,6 +102,11 @@ public class LDJ_GoblinsManager : MonoBehaviour
     {
         OnHordeHit?.Invoke();
         ChangeSpeedWithPercentage(-loosingSpeedPercentage);
+    }
+
+    public void HitPlayer()
+    {
+        OnPlayerHit?.Invoke(); 
     }
     #endregion 
 }
