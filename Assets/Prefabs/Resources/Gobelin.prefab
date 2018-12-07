@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 114839780921162144}
   - component: {fileID: 54513199144382866}
   - component: {fileID: 65118521437453942}
-  - component: {fileID: 114594020822033152}
   - component: {fileID: 195839689757943710}
+  - component: {fileID: 114281282484760760}
   m_Layer: 12
   m_Name: Gobelin
   m_TagString: Untagged
@@ -40,7 +40,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1350767430933560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 5.07, y: 0, z: -10.22}
+=======
+  m_LocalPosition: {x: 1.0258638, y: -2.476892e-16, z: 12.326196}
+>>>>>>> master
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,7 +119,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.746451, y: 0.97155696, z: 0.34823543}
   m_Center: {x: 0.000000059604645, y: 0.4843506, z: -0.0072262287}
---- !u!114 &114594020822033152
+--- !u!114 &114281282484760760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,16 +127,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1350767430933560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbac4930c5f6b8b49adaed77fc8e4086, type: 3}
+  m_Script: {fileID: 11500000, guid: 552fa19dd6ca7984a9af6a1db34fddef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeader: 0
-  leaderAgent: {fileID: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  speed: 0
-  updateTick: 0.5
-  canMove: 0
-  goblinAgent: {fileID: 0}
+  avoidanceRangeMin: 0.1
+  avoidanceRangeMax: 1
 --- !u!114 &114839780921162144
 MonoBehaviour:
   m_ObjectHideFlags: 1

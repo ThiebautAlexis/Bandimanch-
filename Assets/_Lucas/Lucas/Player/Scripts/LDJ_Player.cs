@@ -646,6 +646,7 @@ public class LDJ_Player : MonoBehaviour
     void Start ()
     {
         // Set the camera target as this transform
+        if (!LDJ_CameraBehaviour.Instance || !LDJ_UIManager.Instance) return; 
         LDJ_CameraBehaviour.Instance.SetTarget(transform);
 
         // Set the player's health
