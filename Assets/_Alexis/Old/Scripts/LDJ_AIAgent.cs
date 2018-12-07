@@ -205,8 +205,8 @@ public class LDJ_AIAgent : MonoBehaviour
     {
         if (!isLeader) return;
         Collider[] _coll = Physics.OverlapBox(transform.position + (Vector3.up * .5f), DetectionRange);
-        _coll = _coll.Select(c => c).Where(c => !c.GetComponent<LDJ_AIAgent>()).ToArray();
-        _coll = _coll.Select(c => c).Where(c => c.gameObject.layer != LayerMask.NameToLayer("Ground")).ToArray();
+        _coll = _coll.Where(c => !c.GetComponent<LDJ_AIAgent>() || c.gameObject.layer != LayerMask.NameToLayer("Ground")).ToArray();
+        //_coll = _coll.Select(c => c).Where(c => c.gameObject.layer != LayerMask.NameToLayer("Ground")).ToArray();
         if(_coll.Length == 0)
         {
             if (!isUsingNavMesh)
@@ -222,7 +222,7 @@ public class LDJ_AIAgent : MonoBehaviour
         {
             LDJ_Player _p = _coll.Select(p => p.GetComponent<LDJ_Player>()).FirstOrDefault();
             // REACH THE PLAYER
-            goblinAgent.SetDestination(_p.transform.position); 
+            goblinAgent.SetDestination(_p ? _p.transform.position : goblinAgent.transform.position); 
         }
         else
         {
@@ -295,7 +295,8 @@ public class LDJ_AIAgent : MonoBehaviour
     public void SetSpeed(float _newSpeed)
     {
         speed = _newSpeed;
-        goblinAgent.speed = speed; 
+        if(isLeader)
+            goblinAgent.speed = speed; 
     }
     #endregion
 
