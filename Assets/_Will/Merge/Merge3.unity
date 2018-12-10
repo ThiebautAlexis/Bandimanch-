@@ -1227,7 +1227,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-32410
+  m_Name: pb_Mesh25482
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interuptor: {fileID: 154180145}
-  weightNeeded: 5
+  weightNeeded: 0
   isActif: 0
   isHeavy: 1
   radiusGizmo: 1
@@ -10370,7 +10370,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16332
+  m_Name: pb_Mesh25996
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2

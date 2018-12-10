@@ -44,6 +44,7 @@ public class LDJ_GateManager : MonoBehaviour
     }
     void MakeInteraction()
     {
+        Debug.Log(isActif);
         objectToInteract.GetComponent<Animator>().SetTrigger("PlayAnimation");
     }
     #endregion

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23638855736596600}
   - component: {fileID: 114157169337600346}
   - component: {fileID: 114401480926477498}
+  - component: {fileID: 65293042766037396}
   m_Layer: 0
   m_Name: DalleButtonLightWeight
   m_TagString: Untagged
@@ -85,6 +86,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1054035289201300}
   m_Mesh: {fileID: 0}
+--- !u!65 &65293042766037396
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054035289201300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114157169337600346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1166,7 +1179,7 @@ MonoBehaviour:
   interuptor: {fileID: 0}
   weightNeeded: 3
   isActif: 0
-  isHeavy: 1
+  isHeavy: 0
   radiusGizmo: 1
   rangeGizmo: 1
   heightGizmo: 1
