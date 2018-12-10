@@ -28056,7 +28056,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh15846
+  m_Name: pb_Mesh16922
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -29722,6 +29722,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98a1165cabb79784ab8fa7ac3a62544f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &1631909902 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4857889643733266, guid: 98a1165cabb79784ab8fa7ac3a62544f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1631909901}
 --- !u!1001 &1683715435
 Prefab:
   m_ObjectHideFlags: 0
@@ -33759,7 +33764,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1857054049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.94, y: 0, z: -8.49}
+  m_LocalPosition: {x: 4.94, y: 0, z: -13.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -33776,11 +33781,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b7b83b14ad97748ae44a305f0a8fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanciedAgent: {fileID: 0}
+  instanciedAgent: {fileID: 114567727646023988, guid: 95e0133ee03e81448936513869bcb578,
+    type: 2}
   instanceCounts: 10
-  spawningRange: 4
+  spawningRange: 3
   hordeParent: {fileID: 1293854293}
-  hordeTarget: {fileID: 0}
+  hordeTarget: {fileID: 1631909902}
   minSpeed: 3
   maxSpeed: 5
   currentSpeed: 3

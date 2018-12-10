@@ -106,12 +106,6 @@ public class LDJ_GoblinsManager : MonoBehaviour
     /// <param name="_percentage"></param>
     public void ApplyNewSpeed(float _value)
     {
-        //_percentage = Mathf.Clamp(_percentage, -100, 100);
-        //bool _increase = _percentage > 0;
-        //float _value = ((maxSpeed - minSpeed) * Mathf.Abs(_percentage)) / 100;
-        //if (_increase)
-        //    currentSpeed += _value;
-        //else
         currentSpeed += _value;
         currentSpeed = Mathf.Clamp(currentSpeed, minSpeed, maxSpeed);
         OnSpeedModified?.Invoke(currentSpeed);
