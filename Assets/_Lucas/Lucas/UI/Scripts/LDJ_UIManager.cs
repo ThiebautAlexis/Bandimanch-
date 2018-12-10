@@ -35,27 +35,36 @@ public class LDJ_UIManager : MonoBehaviour
     public event Action<LDJ_ObjectCharacteristics> OnRemoveInventoryItem = null;
     // When the inventory selected in set
     public event Action<LDJ_UIInventoryItem> OnSetSelectedItem = null;
+
+    // Event called when a menu is opened or closed
+    public event Action<bool> OnMenuOpened = null;
     #endregion
 
     #region Fields / Accessors
     [Header("Anchors :")]
-    // End menu anchor
-    [SerializeField] private GameObject endMenuAnchor = null;
     // The full inventory anchor
     [SerializeField] private GameObject fullInventoryAnchor = null;
     // The health anchor
     [SerializeField] private GameObject healthAnchor = null;
+
+    // End game meu anchor
+    [SerializeField] private GameObject endGameMenuAnchor = null;
+    // End map menu anchor
+    [SerializeField] private GameObject endMapMenuAnchor = null;
+    // Main menu anchor
+    [SerializeField] private GameObject mainMenuAnchor = null;
     // Pause menu anchor
     [SerializeField] private GameObject pauseMenuAnchor = null;
-    // The selected item anchor
-    [SerializeField] private GameObject selectedObjectAnchor = null;
-    [SerializeField] private GameObject endGameMenuAnchor = null;
 
-    [Header("Menus :")]
+    [Header("Default Menus Buttons :")]
+    // The default activated button for end game menu
+    [SerializeField] private Button endGameMenuDefaultButton = null;
+    // The default activated button for end map menu
+    [SerializeField] private Button endMapMenuDefaultButton = null;
+    // The default activated button for main menu
+    [SerializeField] private Button mainMenuDefaultButton = null;
     // The first selected button of the pause menu
     [SerializeField] private Button pauseMenuDefaultButton = null;
-    // The default activated button for end menu
-    [SerializeField] private Button endMenuDefaultButton = null;
 
     [Header("Health :")]
     // The current health of the player
@@ -172,15 +181,6 @@ public class LDJ_UIManager : MonoBehaviour
         LDJ_UIInventoryItem _newItem = Instantiate(Resources.Load<LDJ_UIInventoryItem>("InventoryItem"), fullInventoryAnchor.transform, true);
         _newItem.Init(_object);
 
-        // If this is the first grabed object, activate the selected object element
-        if (inventoryItems == null || inventoryItems.Count == 0)
-        {
-            if (!fullInventoryAnchor.activeInHierarchy)
-            {
-                selectedObjectAnchor.SetActive(true);
-            }
-        }
-
         // Add the instantiated object to the list
         inventoryItems.Add(_newItem);
 
@@ -257,48 +257,103 @@ public class LDJ_UIManager : MonoBehaviour
     #endregion
 
     #region Menu
+    /// <summary>
+    /// Opens or closes the end of the game
+    /// </summary>
     public void EndGame()
     {
-        Time.timeScale = 0;
-        endGameMenuAnchor.SetActive(true);
-        healthAnchor.SetActive(false);
+        // Get if the menu should be opened or closed
+        bool _doOpen = !pauseMenuAnchor.activeInHierarchy;
+
+        // Active the menu
+        endGameMenuAnchor.SetActive(_doOpen);
+        healthAnchor.SetActive(!_doOpen);
+
+        // Set the cursor
+        Cursor.visible = _doOpen;
+
+        // Set the default button as activated
+        if (_doOpen)
+        {
+            eventSystem.SetSelectedGameObject(endGameMenuDefaultButton.gameObject);
+        }
+
+        // Calls the menu event
+        OnMenuOpened?.Invoke(_doOpen);
     }
 
     /// <summary>
-    /// Calls the end map menu
+    /// Opens or closes the end map menu
     /// </summary>
     public void EndMapMenu()
     {
-        endMenuAnchor.SetActive(true);
-        healthAnchor.SetActive(false);
-        Time.timeScale = 0f;
+        // Get if the menu should be opened or closed
+        bool _doOpen = !pauseMenuAnchor.activeInHierarchy;
 
-        Cursor.visible = true;
+        // Active the menu
+        endMapMenuAnchor.SetActive(_doOpen);
+        healthAnchor.SetActive(!_doOpen);
+
+        // Set the cursor
+        Cursor.visible = _doOpen;
+
+        // Set the default button as activated
+        if (_doOpen)
+        {
+            eventSystem.SetSelectedGameObject(endMapMenuDefaultButton.gameObject);
+        }
+
+        // Calls the menu event
+        OnMenuOpened?.Invoke(_doOpen);
     }
 
     /// <summary>
-    /// Opens the pause menu
+    /// Opens or closes the main menu
     /// </summary>
-    /// <param name="_doOpen">Should the pause menu be opened</param>
-    public void OpenMenu(bool _doOpen)
+    public void MainMenu()
     {
+        // Get if the menu should be opened or closed
+        bool _doOpen = !pauseMenuAnchor.activeInHierarchy;
+
+        // Active the menu
+        mainMenuAnchor.SetActive(_doOpen);
+        healthAnchor.SetActive(!_doOpen);
+
+        // Set the cursor
+        Cursor.visible = _doOpen;
+
+        // Set the default button as activated
+        if (_doOpen)
+        {
+            eventSystem.SetSelectedGameObject(mainMenuDefaultButton.gameObject);
+        }
+
+        // Calls the menu event
+        OnMenuOpened?.Invoke(_doOpen);
+    }
+
+    /// <summary>
+    /// Opens or closes the pause menu
+    /// </summary>
+    public void PauseMenu()
+    {
+        // Get if the menu should be opened or closed
+        bool _doOpen = !pauseMenuAnchor.activeInHierarchy;
+
         // Active the menu
         pauseMenuAnchor.SetActive(_doOpen);
 
         // Set the cursor
         Cursor.visible = _doOpen;
 
-        // Set the default button as activated and disable time
+        // Set the default button as activated
         if (_doOpen)
         {
             eventSystem.SetSelectedGameObject(pauseMenuDefaultButton.gameObject);
-            Time.timeScale = 0.0f;
         }
-        // Enable time
-        else
-        {
-            Time.timeScale = 1;
-        }
+
+        // Calls the menu event
+        OnMenuOpened?.Invoke(_doOpen);
     }
     #endregion
     #endregion

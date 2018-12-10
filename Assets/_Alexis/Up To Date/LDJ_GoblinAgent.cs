@@ -18,11 +18,16 @@ public class LDJ_GoblinAgent : MonoBehaviour
     #region Fields and properties 
     private NavMeshAgent agent;
     private Transform target;
+    [Header("Avoidance Settings")]
     [SerializeField, Range(.1f, 5)] float avoidanceRangeMin = .1f;
     [SerializeField, Range(.1f, 5)] float avoidanceRangeMax = 5;
     [SerializeField, Range(1, 10)] float radiusChangementTime = 5; 
     private float currentAvoidanceRange;
     private float maxAvoidanceRangeValue;
+    [Header("StroppingSettings")]
+    [SerializeField, Range(.1f, 5f)] float startingTimer = 1; 
+
+    private bool canMove = true; 
     #endregion
 
     #region Methods
@@ -52,6 +57,7 @@ public class LDJ_GoblinAgent : MonoBehaviour
     /// </summary>
     private void UpdateAgentRadius()
     {
+        if (!canMove) return; 
         currentAvoidanceRange = Mathf.Clamp(Mathf.PingPong(Time.time, maxAvoidanceRangeValue), avoidanceRangeMin, avoidanceRangeMax);
         agent.radius = currentAvoidanceRange; 
     }
@@ -73,32 +79,67 @@ public class LDJ_GoblinAgent : MonoBehaviour
     /// </summary>
     void MoveToTarget()
     {
-<<<<<<< HEAD
-        if (!agent || !target) return;
-=======
         if (!agent || !target) return; 
->>>>>>> master
+        if(!canMove)
+        {
+            if (!agent.isStopped) agent.isStopped = true;
+            return; 
+        }
+        if (agent.isStopped) agent.isStopped = false; 
         //if(agent.CalculatePath(target.position, agent.path))
-            agent.SetDestination(target.position); 
+        agent.SetDestination(target.position); 
     }
     
+    /// <summary>
+    /// Called when the agent is hit by an object
+    /// </summary>
     void HitAgent()
     {
         Debug.Log("Agent Hit"); 
         OnAgentHit?.Invoke(); 
     }
 
+    /// <summary>
+    /// Called when the player is hit
+    /// </summary>
+    /// <param name="_playerHit"></param>
     void HitPlayer(LDJ_Player _playerHit)
     {
+        OnHitPlayer?.Invoke();
         _playerHit.TakeDamage();
-        OnHitPlayer?.Invoke(); 
+    }
+
+    /// <summary>
+    /// Stop the horde
+    /// Reset it after
+    /// </summary>
+    /// <param name="_speed"></param>
+    public void StopMovement(float _speed)
+    {
+        canMove = false;
+        SetSpeed(_speed); 
+        StartCoroutine(ResetMovement()); 
+    }
+
+    public void PauseMovement(bool _pauseState) => canMove = !_pauseState;
+
+    /// <summary>
+    /// Set the bool can move to true after X seconds
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ResetMovement()
+    {
+        yield return new WaitForSeconds(startingTimer);
+        canMove = true;
+        yield break; 
     }
     #endregion
 
     #region UnityMethods
     private void Awake()
     {
-        RandomRadiusCallback += GetRandomRadius; 
+        RandomRadiusCallback += GetRandomRadius;
+        LDJ_UIManager.Instance.OnMenuOpened += PauseMovement; 
     }
     private void Start()
     {
@@ -109,10 +150,11 @@ public class LDJ_GoblinAgent : MonoBehaviour
     private void Update()
     {
         MoveToTarget(); 
-        UpdateAgentRadius();  
+        UpdateAgentRadius();
     }
     private void OnCollisionEnter(Collision _collision)
     {
+        if (!canMove) return; 
         LDJ_Player _player = null;
         if (_player = _collision.transform.GetComponent<LDJ_Player>())
         {
