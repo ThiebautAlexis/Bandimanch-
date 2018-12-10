@@ -81,21 +81,6 @@ public class LDJ_Object : MonoBehaviour
 
     #region Methods
     #region Original Methods
-    // Check if the horde is hit
-    private void CheckHitHorde()
-    {
-        Collider[] _hit = new Collider[] { };
-
-        if ((_hit = Physics.OverlapBox(transform.TransformPoint(collider.center), collider.size, Quaternion.identity, whatIsHorde)).Length > 0)
-        {
-            LDJ_AIManager.Instance.HitHorde();
-
-            rigidbody.velocity /= 2;
-
-            canInflictDamages = false;
-        }
-    }
-
     /// <summary>
     /// Throws the object from a position, with a velocty and a bonus force
     /// </summary>
@@ -154,10 +139,23 @@ public class LDJ_Object : MonoBehaviour
             {
                 canInflictDamages = false;
             }
-            else
-            {
-                CheckHitHorde();
-            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // If cannot inflict damages, return
+        if (!canInflictDamages) return;
+
+        // If the object touching is a gobelin, hit the horde, decreases the velocity and set it so it cannot hit the horde again
+        LDJ_GoblinAgent _goblin = null;
+        if (_goblin = collision.gameObject.GetComponent<LDJ_GoblinAgent>())
+        {
+
+
+            rigidbody.velocity /= 2;
+
+            canInflictDamages = false;
         }
     }
 
