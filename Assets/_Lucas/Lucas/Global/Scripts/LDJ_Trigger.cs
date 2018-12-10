@@ -55,7 +55,7 @@ public class LDJ_Trigger : MonoBehaviour
                     LDJ_UIManager.Instance.EndMapMenu();
                     break;
                 case TriggerType.EndGame:
-                    LDJ_UIManager.Instance.EndGame();
+                    LDJ_UIManager.Instance.EndGameMenu();
                     break;
                 case TriggerType.HordeTrigger:
                     // Activate horde

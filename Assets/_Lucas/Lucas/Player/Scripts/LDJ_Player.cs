@@ -105,7 +105,7 @@ public class LDJ_Player : MonoBehaviour
                 isControllable = false;
                 OnDied?.Invoke();
                 animator.SetTrigger("Death");
-                
+                LDJ_UIManager.Instance.DeathMenu();
 
                 // Sound
                // AkSoundEngine.PostEvent("Stop_Footsetps", gameObject);
@@ -216,6 +216,7 @@ public class LDJ_Player : MonoBehaviour
     // Inputs to grab and throw objects
     [SerializeField] private string interactInput = "Interact";
     [SerializeField] private string throwInput = "Throw";
+    [SerializeField] private AxisToInput throwAxisToInput = new AxisToInput("Throw Axis");
 
     // Submit & cancel inputs
     [SerializeField] private string submitInput = "Submit";
@@ -243,8 +244,6 @@ public class LDJ_Player : MonoBehaviour
     // Makes the character interact with the nearest object in range
     private void InteractObject()
     {
-        Debug.Log("Object");
-
         // Grab the nearest object in range if there is one, and add it to the inventory
         Collider[] _inRange = new Collider[] { };
 
@@ -323,8 +322,6 @@ public class LDJ_Player : MonoBehaviour
     // Checks the player's inputs and executes actions in consequences
     private void InputActions()
     {
-        if (Time.timeScale == 0) return;
-
         // (Des)Activate the menu
         if (Input.GetButtonDown(menuInput))
         {
@@ -365,7 +362,7 @@ public class LDJ_Player : MonoBehaviour
         }
 
         // Try to throw selected object
-        else if (Input.GetButtonDown(throwInput))
+        else if (Input.GetButtonDown(throwInput) || (throwAxisToInput.Convert() != 0))
         {
             ThrowObject();
         }
@@ -546,7 +543,7 @@ public class LDJ_Player : MonoBehaviour
                 selectedObject.Instance = Instantiate(Resources.Load<LDJ_Object>(selectedObject.ResourcePrefabName));
             }
             // Enable it, set its position to the character one and give it velocity
-            selectedObject.Instance.Throw(transform.position, (new Vector3(lookX, 0, lookY) * throwForceVelocity) + (Vector3.up * throwForceVelocity / 10), strength);
+            selectedObject.Instance.Throw(transform.position, (new Vector3(lookX, 0, lookY).normalized * throwForceVelocity) + (Vector3.up * throwForceVelocity / 10), strength);
 
             // Set the rotation of the object
             selectedObject.Instance.transform.forward = new Vector3(lookX, 0, lookY);
@@ -671,13 +668,17 @@ public class LDJ_Player : MonoBehaviour
         // Set the player's health
         LDJ_UIManager.Instance.SetHealth(Health);
 
-        // Set the aims cursor orientation
+        // Set the aims cursor orientation & position
         aimsCursor.transform.forward = Camera.main.transform.forward;
+        lookY = -1;
 
         // Set the cursor as invisible
         Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
-	}
+
+        // Set the player as non controllable when a menu is open
+        LDJ_UIManager.Instance.OnMenuOpened += ((bool _doOpen) => isControllable = !_doOpen);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -686,5 +687,63 @@ public class LDJ_Player : MonoBehaviour
         InputActions();
 	}
     #endregion
+    #endregion
+}
+
+public class AxisToInput
+{
+    /* AxisToInput :
+     * 
+     * Class to convert an axis into an input
+    */
+
+    #region Fields / Accessors
+    // The name of the axis to convert
+    public string AxisName
+    {
+        get; private set;
+    }
+
+    // The last value of the input
+    public int LastValue
+    {
+        get; private set;
+    }
+    #endregion
+
+    #region Constructor
+    /// <summary>
+    /// Creates a new axis to input converter
+    /// </summary>
+    /// <param name="_axisName">Name of the axis to convert</param>
+    public AxisToInput(string _axisName)
+    {
+        AxisName = _axisName;
+    }
+    #endregion
+
+    #region Methods
+    /// <summary>
+    /// Converts the axis to an input
+    /// </summary>
+    /// <returns>Returns 0 if the axis wasn't pressed or if its value is the same as previously ; returns 1 or -1 otherwise depending on the axis value</returns>
+    public int Convert()
+    {
+        // Get the value of the axis
+        int _value = Mathf.RoundToInt(Input.GetAxis(AxisName));
+
+        // If the value is different from the last one, set it as last and returns it
+        if (_value != LastValue)
+        {
+            LastValue = _value;
+
+            return _value;
+        }
+        // Else, returns 0
+        else
+        {
+            return 0;
+        }
+    }
     #endregion
 }
