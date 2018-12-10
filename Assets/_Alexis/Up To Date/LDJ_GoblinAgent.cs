@@ -57,6 +57,7 @@ public class LDJ_GoblinAgent : MonoBehaviour
     /// </summary>
     private void UpdateAgentRadius()
     {
+        if (!canMove) return; 
         currentAvoidanceRange = Mathf.Clamp(Mathf.PingPong(Time.time, maxAvoidanceRangeValue), avoidanceRangeMin, avoidanceRangeMax);
         agent.radius = currentAvoidanceRange; 
     }
@@ -120,7 +121,7 @@ public class LDJ_GoblinAgent : MonoBehaviour
         StartCoroutine(ResetMovement()); 
     }
 
-    public void PauseMovement(bool _pauseState) => canMove = _pauseState;
+    public void PauseMovement(bool _pauseState) => canMove = !_pauseState;
 
     /// <summary>
     /// Set the bool can move to true after X seconds
@@ -137,7 +138,8 @@ public class LDJ_GoblinAgent : MonoBehaviour
     #region UnityMethods
     private void Awake()
     {
-        RandomRadiusCallback += GetRandomRadius; 
+        RandomRadiusCallback += GetRandomRadius;
+        LDJ_UIManager.Instance.OnMenuOpened += PauseMovement; 
     }
     private void Start()
     {

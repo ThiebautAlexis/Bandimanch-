@@ -3170,14 +3170,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8babc818fff8dbc4d9a838df3c91cb27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endMenuAnchor: {fileID: 1082216508}
   fullInventoryAnchor: {fileID: 1082216513}
   healthAnchor: {fileID: 1082216512}
-  pauseMenuAnchor: {fileID: 1082216511}
-  selectedObjectAnchor: {fileID: 0}
   endGameMenuAnchor: {fileID: 1082216510}
+  endMapMenuAnchor: {fileID: 0}
+  mainMenuAnchor: {fileID: 0}
+  pauseMenuAnchor: {fileID: 1082216511}
+  endGameMenuDefaultButton: {fileID: 0}
+  endMapMenuDefaultButton: {fileID: 0}
+  mainMenuDefaultButton: {fileID: 0}
   pauseMenuDefaultButton: {fileID: 1082216509}
-  endMenuDefaultButton: {fileID: 0}
   playerHealthHearts: []
   inventoryItems: []
   selectedItemIndex: 0
@@ -5228,11 +5230,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ae808f254434874ab6bdbf36823e60d, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1082216508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1045051286102380, guid: 5ae808f254434874ab6bdbf36823e60d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1082216507}
 --- !u!114 &1082216509 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114536237165046190, guid: 5ae808f254434874ab6bdbf36823e60d,
@@ -10755,7 +10752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b7b83b14ad97748ae44a305f0a8fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanciedAgent: {fileID: 0}
+  instanciedAgent: {fileID: 114567727646023988, guid: 95e0133ee03e81448936513869bcb578,
+    type: 2}
   instanceCounts: 10
   spawningRange: 4
   hordeParent: {fileID: 1293854293}
@@ -10763,7 +10761,9 @@ MonoBehaviour:
   minSpeed: 3
   maxSpeed: 5
   currentSpeed: 3
-  loosingSpeedPercentage: 10
+  decreasingSpeedValue: 10
+  increasingSpeedValue: 5
+  increasingSpeedRange: 25
 --- !u!65 &1857054052
 BoxCollider:
   m_ObjectHideFlags: 0
