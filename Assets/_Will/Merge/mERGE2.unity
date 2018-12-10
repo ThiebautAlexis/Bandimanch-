@@ -6059,7 +6059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interuptor: {fileID: 358896444}
-  weightNeeded: 5
+  weightNeeded: 0
   isActif: 0
   isHeavy: 1
   radiusGizmo: 1
