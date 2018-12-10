@@ -331,6 +331,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1246367312547190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4313162775102198}
+  - component: {fileID: 114448948863691420}
+  - component: {fileID: 114426838128102744}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1265571841672062
 GameObject:
   m_ObjectHideFlags: 1
@@ -1495,8 +1512,22 @@ Transform:
   m_Children:
   - {fileID: 224172277463511448}
   - {fileID: 4649140926843446}
+  - {fileID: 4313162775102198}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4313162775102198
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1246367312547190}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.0799532, y: -0.6071272, z: -1.1789138}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4074792204734636}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4649140926843446
 Transform:
@@ -2177,7 +2208,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -2240,7 +2271,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -2445,7 +2476,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -3856,7 +3887,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -4838,7 +4869,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -4912,7 +4943,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -5167,7 +5198,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -5180,6 +5211,24 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114426838128102744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1246367312547190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!114 &114431821477743342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5462,6 +5511,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114448948863691420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1246367312547190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!114 &114456076858474256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5579,7 +5642,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -5709,7 +5772,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -6552,7 +6615,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -7304,7 +7367,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -8130,7 +8193,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114448948863691420}
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
@@ -8461,7 +8524,7 @@ MonoBehaviour:
   inventoryItems: []
   selectedItemIndex: 0
   itemDistanceFromAnchor: 213
-  eventSystem: {fileID: 0}
+  eventSystem: {fileID: 114448948863691420}
 --- !u!114 &114991661790501172
 MonoBehaviour:
   m_ObjectHideFlags: 1

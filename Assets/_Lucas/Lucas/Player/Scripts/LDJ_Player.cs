@@ -470,7 +470,7 @@ public class LDJ_Player : MonoBehaviour
         }
 
         // Set the position of the aims cursor
-        aimsCursor.transform.position = Vector3.Lerp(aimsCursor.transform.position, transform.position + new Vector3(lookX, 0, lookY).normalized * 5, Time.deltaTime * 5);
+        aimsCursor.transform.position = Vector3.Lerp(aimsCursor.transform.position, transform.position + (new Vector3(lookX, .25f, lookY).normalized * 5), Time.deltaTime * 5);
     }
 
     // Makes the player move in a given direction
