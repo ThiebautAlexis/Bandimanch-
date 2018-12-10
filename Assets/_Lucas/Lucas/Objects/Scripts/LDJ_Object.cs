@@ -151,7 +151,7 @@ public class LDJ_Object : MonoBehaviour
         LDJ_GoblinAgent _goblin = null;
         if (_goblin = collision.gameObject.GetComponent<LDJ_GoblinAgent>())
         {
-
+            _goblin.HitAgent();
 
             rigidbody.velocity /= 2;
 
