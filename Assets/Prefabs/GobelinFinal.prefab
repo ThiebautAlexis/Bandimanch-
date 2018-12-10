@@ -1176,7 +1176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avoidanceRangeMin: 0.1
-  avoidanceRangeMax: 1
+  avoidanceRangeMax: 0.5
   radiusChangementTime: 5
   startingTimer: 1
 --- !u!137 &137738617853659836

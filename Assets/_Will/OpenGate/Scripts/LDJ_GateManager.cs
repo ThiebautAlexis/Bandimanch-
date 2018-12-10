@@ -12,6 +12,8 @@ public class LDJ_GateManager : MonoBehaviour
     bool isActif = false;
     [SerializeField]
     bool isHeavy = true;
+    [SerializeField]
+    bool isTrap = false;
     #endregion
     #region GizmoSettings
     [SerializeField, Header("Gizmo")]
@@ -38,8 +40,12 @@ public class LDJ_GateManager : MonoBehaviour
     #region Meths
     void GetInventoryWeight()
     {
-        if(isHeavy) isActif = playerAdventurer.Weight >= weightNeeded ? true : false;
-        if (!isHeavy) isActif = playerAdventurer.Weight <= weightNeeded ? true : false;
+        if (!isTrap)
+        {
+            if (isHeavy) isActif = playerAdventurer.Weight >= weightNeeded ? true : false;
+            if (!isHeavy) isActif = playerAdventurer.Weight <= weightNeeded ? true : false;
+        }
+        if (isTrap) isActif = true;
         if (isActif) MakeInteraction();
     }
     void MakeInteraction()
@@ -61,17 +67,21 @@ public class LDJ_GateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider _collider)
     {
-        _collider = interuptor.GetComponent<Collider>();
-        Debug.Log("in");
-        GetInventoryWeight();
+        if (_collider.GetComponent<LDJ_Player>())
+        {
+            Debug.Log("in");
+            GetInventoryWeight();
+        }
     }
 
     private void OnTriggerExit(Collider _collider)
     {
         if (!isActif) return;
-        _collider = interuptor.GetComponent<Collider>();
-        Debug.Log("out");
-        isActif = false;
+        if (_collider.GetComponent<LDJ_Player>())
+        {
+            Debug.Log("out");
+            isActif = false;
+        }
     }
     #endregion
 }
