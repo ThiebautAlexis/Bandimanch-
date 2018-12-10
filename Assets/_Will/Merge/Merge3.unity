@@ -112,7 +112,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 1758f268438685a4c90b900406ca9d4b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a1321744f4e286247b8d7c1087929a08, type: 2}
 --- !u!43 &14984306
 Mesh:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &22806425
 Transform:
@@ -369,7 +369,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &78529206
 Transform:
@@ -1896,7 +1896,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &206523538
 Transform:
@@ -3314,7 +3314,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &267791148
 Transform:
@@ -4032,7 +4032,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17436
+=======
   m_Name: pb_Mesh65588
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -5321,7 +5325,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &392489512
 Transform:
@@ -5426,7 +5430,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17480
+=======
   m_Name: pb_Mesh65632
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -5734,7 +5742,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &526594094
 Transform:
@@ -5819,7 +5827,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &532040957
 Transform:
@@ -5893,7 +5901,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17294
+=======
   m_Name: pb_Mesh65446
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6056,6 +6068,7 @@ GameObject:
   - component: {fileID: 538772204}
   - component: {fileID: 538772203}
   - component: {fileID: 538772207}
+  - component: {fileID: 538772208}
   m_Layer: 0
   m_Name: DoorExit
   m_TagString: Untagged
@@ -6941,6 +6954,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!208 &538772208
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 538772201}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 2.378, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &550131676
 GameObject:
   m_ObjectHideFlags: 0
@@ -6957,7 +6985,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &550131677
 Transform:
@@ -9395,6 +9423,7 @@ GameObject:
   - component: {fileID: 621701483}
   - component: {fileID: 621701482}
   - component: {fileID: 621701481}
+  - component: {fileID: 621701486}
   m_Layer: 0
   m_Name: DoorEnter
   m_TagString: Untagged
@@ -10280,6 +10309,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621701479}
   m_Mesh: {fileID: 848969572}
+--- !u!208 &621701486
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 621701479}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 2.378, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &644941299
 GameObject:
   m_ObjectHideFlags: 0
@@ -10296,7 +10340,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &644941300
 Transform:
@@ -10370,7 +10414,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17466
+=======
   m_Name: pb_Mesh65618
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -10525,7 +10573,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17094
+=======
   m_Name: pb_Mesh65246
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -11818,7 +11870,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &745185777
 Transform:
@@ -12531,7 +12583,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17146
+=======
   m_Name: pb_Mesh65298
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -14891,6 +14947,7 @@ GameObject:
   - component: {fileID: 944204185}
   - component: {fileID: 944204184}
   - component: {fileID: 944204183}
+  - component: {fileID: 944204188}
   m_Layer: 0
   m_Name: DoorEnter
   m_TagString: Untagged
@@ -15776,6 +15833,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 944204181}
   m_Mesh: {fileID: 1734031678}
+--- !u!208 &944204188
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944204181}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 2.378, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &991510499
 GameObject:
   m_ObjectHideFlags: 0
@@ -16804,7 +16876,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17182
+=======
   m_Name: pb_Mesh65334
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -17277,6 +17353,7 @@ GameObject:
   - component: {fileID: 1023141508}
   - component: {fileID: 1023141507}
   - component: {fileID: 1023141512}
+  - component: {fileID: 1023141513}
   m_Layer: 0
   m_Name: DoorEnter
   m_TagString: Untagged
@@ -18162,6 +18239,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!208 &1023141513
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023141506}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 2.378, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1082216507
 Prefab:
   m_ObjectHideFlags: 0
@@ -20656,7 +20748,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1214641365
 Transform:
@@ -22050,7 +22142,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1363728740
 Transform:
@@ -22087,7 +22179,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17562
+=======
   m_Name: pb_Mesh65716
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -23517,6 +23613,7 @@ GameObject:
   - component: {fileID: 1413969329}
   - component: {fileID: 1413969328}
   - component: {fileID: 1413969327}
+  - component: {fileID: 1413969332}
   m_Layer: 0
   m_Name: DoorEnter
   m_TagString: Untagged
@@ -24402,12 +24499,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1413969325}
   m_Mesh: {fileID: 348789661}
+--- !u!208 &1413969332
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1413969325}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 2.378, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!43 &1415787292
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17578
+=======
   m_Name: pb_Mesh65732
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -25748,6 +25864,7 @@ GameObject:
   - component: {fileID: 1465821352}
   - component: {fileID: 1465821351}
   - component: {fileID: 1465821350}
+  - component: {fileID: 1465821355}
   m_Layer: 0
   m_Name: DoorEnter
   m_TagString: Untagged
@@ -26633,6 +26750,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1465821348}
   m_Mesh: {fileID: 665550033}
+--- !u!208 &1465821355
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1465821348}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 2.378, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1497212360
 GameObject:
   m_ObjectHideFlags: 0
@@ -27672,7 +27804,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1509639970
 Transform:
@@ -29611,7 +29743,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1626687507
 Transform:
@@ -29722,11 +29854,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98a1165cabb79784ab8fa7ac3a62544f, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &1631909902 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4857889643733266, guid: 98a1165cabb79784ab8fa7ac3a62544f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1631909901}
 --- !u!1001 &1683715435
 Prefab:
   m_ObjectHideFlags: 0
@@ -29843,7 +29970,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1719629876
 Transform:
@@ -29917,7 +30044,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17262
+=======
   m_Name: pb_Mesh65414
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -30080,6 +30211,7 @@ GameObject:
   - component: {fileID: 1739093156}
   - component: {fileID: 1739093155}
   - component: {fileID: 1739093154}
+  - component: {fileID: 1739093159}
   m_Layer: 0
   m_Name: DoorEnter
   m_TagString: Untagged
@@ -30965,6 +31097,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1739093152}
   m_Mesh: {fileID: 1365037250}
+--- !u!208 &1739093159
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1739093152}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 2.378, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!43 &1747315185
 Mesh:
   m_ObjectHideFlags: 0
@@ -31133,6 +31280,7 @@ GameObject:
   - component: {fileID: 1766606752}
   - component: {fileID: 1766606751}
   - component: {fileID: 1766606750}
+  - component: {fileID: 1766606755}
   m_Layer: 0
   m_Name: DoorEnter
   m_TagString: Untagged
@@ -32018,6 +32166,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1766606748}
   m_Mesh: {fileID: 1415787292}
+--- !u!208 &1766606755
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766606748}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 2.378, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1777787235
 GameObject:
   m_ObjectHideFlags: 0
@@ -32034,7 +32197,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1777787236
 Transform:
@@ -32263,7 +32426,11 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_Name: pb_Mesh17452
+=======
   m_Name: pb_Mesh65604
+>>>>>>> master
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -33764,7 +33931,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1857054049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
+  m_LocalPosition: {x: 4.53, y: 0.5, z: -2.28}
+=======
   m_LocalPosition: {x: 4.94, y: 0, z: -12.01}
+>>>>>>> master
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -33783,10 +33954,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instanciedAgent: {fileID: 114567727646023988, guid: 95e0133ee03e81448936513869bcb578,
     type: 2}
-  instanceCounts: 10
-  spawningRange: 3
+  instanceCounts: 15
+  spawnPosition: {x: 4.27, y: 0, z: -11.95}
+  spawningRange: 3.5
   hordeParent: {fileID: 1293854293}
-  hordeTarget: {fileID: 1631909902}
+  hordeTarget: {fileID: 0}
   minSpeed: 3
   maxSpeed: 5
   currentSpeed: 3
@@ -33803,8 +33975,13 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
+  m_Size: {x: 6, y: 1, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+=======
   m_Size: {x: 8.26, y: 1, z: 5.36}
   m_Center: {x: 0.3, y: 0.5, z: 10.35}
+>>>>>>> master
 --- !u!1 &1877831079
 GameObject:
   m_ObjectHideFlags: 0
@@ -33821,7 +33998,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1877831080
 Transform:
@@ -34626,7 +34803,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2041305932
 Transform:

@@ -93,7 +93,7 @@ public class LDJ_GoblinAgent : MonoBehaviour
     /// <summary>
     /// Called when the agent is hit by an object
     /// </summary>
-    void HitAgent()
+    public void HitAgent()
     {
         Debug.Log("Agent Hit"); 
         OnAgentHit?.Invoke(); 
