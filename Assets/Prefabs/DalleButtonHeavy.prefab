@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33875375963799370}
   - component: {fileID: 23638855736596600}
   - component: {fileID: 114157169337600346}
+  - component: {fileID: 114032467402594652}
   m_Layer: 0
   m_Name: DalleButtonHeavy
   m_TagString: Untagged
@@ -84,6 +85,28 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1054035289201300}
   m_Mesh: {fileID: 0}
+--- !u!114 &114032467402594652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054035289201300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a71a95dbd6a3e47a692b61d0ca1f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interuptor: {fileID: 0}
+  weightNeeded: 3
+  isActif: 0
+  isHeavy: 1
+  radiusGizmo: 1
+  rangeGizmo: 1
+  heightGizmo: 1
+  actifColor: {r: 0, g: 0, b: 0, a: 0}
+  unactifColor: {r: 0, g: 0, b: 0, a: 0}
+  playerAdventurer: {fileID: 0}
+  objectToInteract: {fileID: 0}
 --- !u!114 &114157169337600346
 MonoBehaviour:
   m_ObjectHideFlags: 1
