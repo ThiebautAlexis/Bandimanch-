@@ -184,6 +184,17 @@ public class LDJ_GameManager : MonoBehaviour
     void Update ()
     {
 	}
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        foreach (Vector3 point in mapsStartPoints)
+        {
+            Gizmos.DrawSphere(point, .5f); 
+        }
+
+        
+    }
     #endregion
     #endregion
 }
