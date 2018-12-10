@@ -41,6 +41,9 @@ public class LDJ_UIManager : MonoBehaviour
     #endregion
 
     #region Fields / Accessors
+    // Can the pause menu be opened or closed ?
+    [SerializeField] public bool CanOpenPauseMenu { get; set; }
+
     [Header("Anchors :")]
     // The full inventory anchor
     [SerializeField] private GameObject fullInventoryAnchor = null;
@@ -286,6 +289,9 @@ public class LDJ_UIManager : MonoBehaviour
             eventSystem.SetSelectedGameObject(null);
         }
 
+        // Set if the pause menu can be opened or closed
+        CanOpenPauseMenu = !_doOpen;
+
         // Calls the menu event
         OnMenuOpened?.Invoke(_doOpen);
     }
@@ -314,6 +320,9 @@ public class LDJ_UIManager : MonoBehaviour
         {
             eventSystem.SetSelectedGameObject(null);
         }
+
+        // Set if the pause menu can be opened or closed
+        CanOpenPauseMenu = !_doOpen;
 
         // Calls the menu event
         OnMenuOpened?.Invoke(_doOpen);
@@ -344,6 +353,9 @@ public class LDJ_UIManager : MonoBehaviour
             eventSystem.SetSelectedGameObject(null);
         }
 
+        // Set if the pause menu can be opened or closed
+        CanOpenPauseMenu = !_doOpen;
+
         // Calls the menu event
         OnMenuOpened?.Invoke(_doOpen);
     }
@@ -373,6 +385,9 @@ public class LDJ_UIManager : MonoBehaviour
             eventSystem.SetSelectedGameObject(null);
         }
 
+        // Set if the pause menu can be opened or closed
+        CanOpenPauseMenu = !_doOpen;
+
         // Calls the menu event
         OnMenuOpened?.Invoke(_doOpen);
     }
@@ -382,6 +397,9 @@ public class LDJ_UIManager : MonoBehaviour
     /// </summary>
     public void PauseMenu()
     {
+        // If the pause menu cannot be opened or closed, return
+        if (!CanOpenPauseMenu) return;
+
         // Get if the menu should be opened or closed
         bool _doOpen = !pauseMenuAnchor.activeInHierarchy;
 

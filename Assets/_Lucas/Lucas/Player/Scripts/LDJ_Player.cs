@@ -100,19 +100,13 @@ public class LDJ_Player : MonoBehaviour
         {
             value = Mathf.Clamp(value, 0, maxHealth);
 
+            LDJ_UIManager.Instance.SetHealth(value);
+            LDJ_CameraBehaviour.Instance.ScreenShake();
+
             if (value == 0)
             {
-                isControllable = false;
-                OnDied?.Invoke();
-                animator.SetTrigger("Death");
-                LDJ_UIManager.Instance.DeathMenu();
-
-                // Sound
-               // AkSoundEngine.PostEvent("Stop_Footsetps", gameObject);
-                //AkSoundEngine.PostEvent("Play_Die", gameObject);
+                StartCoroutine(Death());
             }
-
-            LDJ_UIManager.Instance.SetHealth(value);
 
             health = value;
         }
@@ -241,6 +235,83 @@ public class LDJ_Player : MonoBehaviour
 
     #region Methods
     #region Original Methods
+    // Death of the player
+    private IEnumerator Death()
+    {
+        isControllable = false;
+        OnDied?.Invoke();
+        animator.SetTrigger("Death");
+
+        yield return new WaitForSeconds(2.5f);
+
+        LDJ_UIManager.Instance.DeathMenu();
+
+        // Sound
+        // AkSoundEngine.PostEvent("Stop_Footsetps", gameObject);
+        //AkSoundEngine.PostEvent("Play_Die", gameObject);
+    }
+
+    // Make the player eat all the food
+    public void Eat()
+    {
+        // Get all cookers and food items
+        LDJ_ObjectCharacteristics[] _cookers = objects.Where(o => o.ObjectType == ObjectType.Cooker).ToArray();
+        LDJ_ObjectCharacteristics[] _foods = objects.Where(o => o.ObjectType == ObjectType.Food).ToArray();
+
+        // Get the total cooker coefficient & food total restore force
+        float _cookerCoef = 0;
+        int _foodPower = 0;
+
+        foreach (LDJ_ObjectCharacteristics _cooker in _cookers)
+        {
+            // Increase the cooker coef, then remove the element from inventory
+            _cookerCoef += _cooker.CookerPower;
+
+            // Remove the thrown object from the list
+            objects.Remove(_cooker);
+
+            // Set the weight
+            weight -= _cooker.Weight;
+
+            // Get the new selected object
+            LDJ_UIManager.Instance.RemoveInventoryItem(_cooker);
+
+            // Destroy the removed object
+            if (_cooker.Instance)
+            {
+                Destroy(_cooker.Instance.gameObject);
+            }
+        }
+        foreach (LDJ_ObjectCharacteristics _food in _foods)
+        {
+            // Increase thefood powa, then remove the element from inventory
+            _foodPower += _food.FoodRestoration;
+
+            // Remove the thrown object from the list
+            objects.Remove(_food);
+
+            // Set the weight
+            weight -= _food.Weight;
+
+            // Get the new selected object
+            LDJ_UIManager.Instance.RemoveInventoryItem(_food);
+
+            // Destroy the removed object
+            if (_food.Instance)
+            {
+                Destroy(_food.Instance.gameObject);
+            }
+        }
+
+        selectedObject = LDJ_UIManager.Instance.GetSelectedItem.ObjectsReferences[0];
+
+        // Sound
+        //AkSoundEngine.PostEvent("Play_Eat", gameObject);
+
+        // Get the total restoration amount
+        Health += Mathf.RoundToInt(_cookerCoef) * _foodPower;
+    }
+
     // Makes the character interact with the nearest object in range
     private void InteractObject()
     {
@@ -322,6 +393,9 @@ public class LDJ_Player : MonoBehaviour
     // Checks the player's inputs and executes actions in consequences
     private void InputActions()
     {
+        // If the player is dead, return
+        if (health == 0) return;
+
         // (Des)Activate the menu
         if (Input.GetButtonDown(menuInput))
         {
@@ -399,67 +473,6 @@ public class LDJ_Player : MonoBehaviour
         aimsCursor.transform.position = Vector3.Lerp(aimsCursor.transform.position, transform.position + new Vector3(lookX, 0, lookY).normalized * 5, Time.deltaTime * 5);
     }
 
-    // Make the player eat all the food
-    public void Eat()
-    {
-        // Get all cookers and food items
-        LDJ_ObjectCharacteristics[] _cookers = objects.Where(o => o.ObjectType == ObjectType.Cooker).ToArray();
-        LDJ_ObjectCharacteristics[] _foods = objects.Where(o => o.ObjectType == ObjectType.Food).ToArray();
-
-        // Get the total cooker coefficient & food total restore force
-        float _cookerCoef = 0;
-        int _foodPower = 0;
-
-        foreach (LDJ_ObjectCharacteristics _cooker in _cookers)
-        {
-            // Increase the cooker coef, then remove the element from inventory
-            _cookerCoef += _cooker.CookerPower;
-
-            // Remove the thrown object from the list
-            objects.Remove(_cooker);
-
-            // Set the weight
-            weight -= _cooker.Weight;
-
-            // Get the new selected object
-            LDJ_UIManager.Instance.RemoveInventoryItem(_cooker);
-
-            // Destroy the removed object
-            if (_cooker.Instance)
-            {
-                Destroy(_cooker.Instance.gameObject);
-            }
-        }
-        foreach (LDJ_ObjectCharacteristics _food in _foods)
-        {
-            // Increase thefood powa, then remove the element from inventory
-            _foodPower += _food.FoodRestoration;
-
-            // Remove the thrown object from the list
-            objects.Remove(_food);
-
-            // Set the weight
-            weight -= _food.Weight;
-
-            // Get the new selected object
-            LDJ_UIManager.Instance.RemoveInventoryItem(_food);
-
-            // Destroy the removed object
-            if (_food.Instance)
-            {
-                Destroy(_food.Instance.gameObject);
-            }
-        }
-
-        selectedObject = LDJ_UIManager.Instance.GetSelectedItem.ObjectsReferences[0];
-
-        // Sound
-        //AkSoundEngine.PostEvent("Play_Eat", gameObject);
-
-        // Get the total restoration amount
-        Health += Mathf.RoundToInt(_cookerCoef) * _foodPower;
-    }
-
     // Makes the player move in a given direction
     private void Move(Vector3 _direction)
     {
@@ -512,6 +525,16 @@ public class LDJ_Player : MonoBehaviour
         objects.Clear();
 
         Debug.Log("Sell Inventory !");
+    }
+
+    // Set if the player is controllable or not when a menu is opened or closed
+    private void SetControllableAfterMenu(bool _doOpenMenu)
+    {
+        // If the player is alive, set its control
+        if (health > 0)
+        {
+            isControllable = !_doOpenMenu;
+        }
     }
 
     // Set the player invulnerable during a certain amount of time
@@ -677,7 +700,7 @@ public class LDJ_Player : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
 
         // Set the player as non controllable when a menu is open
-        LDJ_UIManager.Instance.OnMenuOpened += ((bool _doOpen) => isControllable = !_doOpen);
+        LDJ_UIManager.Instance.OnMenuOpened += SetControllableAfterMenu;
     }
 	
 	// Update is called once per frame

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LDJ_CameraBehaviour : MonoBehaviour
 {
@@ -31,8 +32,18 @@ public class LDJ_CameraBehaviour : MonoBehaviour
     // The target transform to follow
     [SerializeField] private Transform target = null;
 
+    // The speed of the camera
+    [SerializeField] private float speed = 5;
+
     // The offset of the camera compared to the target
     [SerializeField] private Vector3 offset = Vector3.one;
+
+    // The screen shake length
+    [SerializeField] private float screenShakeLength = .5f;
+
+    // The screen shake force
+    [SerializeField] private float screenShakeForce = .5f;
+
     #region Bounds
     [Header("Bounds :")]
     // The bounds of the area where the camera can move
@@ -63,7 +74,7 @@ public class LDJ_CameraBehaviour : MonoBehaviour
         // Get the position compared to the target
         Vector3 _position = target.transform.position + offset;
         // Clamp the camera between bounds
-        transform.position = new Vector3(Mathf.Clamp(_position.x, leftBound, rightBound), _position.y, Mathf.Clamp(_position.z, downBound, topBound));
+        transform.position = Vector3.Lerp(transform.position, new Vector3(Mathf.Clamp(_position.x, leftBound, rightBound), _position.y, Mathf.Clamp(_position.z, downBound, topBound)), Time.deltaTime * speed);
 
         // Raycast from camera to target
         MeshRenderer[] _meshes = Physics.RaycastAll(transform.position, (target.transform.position - transform.position).normalized, Vector3.Distance(transform.position, target.transform.position)).Where(r => r.collider.GetComponent<MeshRenderer>() != null).Select(r => r.collider.GetComponent<MeshRenderer>()).ToArray();
@@ -104,6 +115,29 @@ public class LDJ_CameraBehaviour : MonoBehaviour
 
         // Update the list of current cumbersome meshes
         cumbersomeMeshes = _newCumbersomeMeshes;
+    }
+
+    // Creates a screen shake
+    public void ScreenShake()
+    {
+        StartCoroutine(ScreenShakeCoroutine());
+    }
+
+    private IEnumerator ScreenShakeCoroutine()
+    {
+        // Creates the timer
+        float _timer = 0;
+
+        // Shake the camera each frame for the indicated length
+        while (_timer < screenShakeLength)
+        {
+            // Set the position of the camera
+            transform.position += Random.insideUnitSphere * screenShakeForce;
+
+            // Waits for the next frame and increases the timer
+            yield return null;
+            _timer += Time.deltaTime;
+        }
     }
 
     /// <summary>
