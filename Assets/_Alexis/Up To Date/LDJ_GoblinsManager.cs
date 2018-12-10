@@ -18,6 +18,7 @@ public class LDJ_GoblinsManager : MonoBehaviour
     [Header("Spawning Informations")]
     [SerializeField] LDJ_GoblinAgent instanciedAgent;
     [SerializeField, Range(1, 250)] int instanceCounts = 10;
+    [SerializeField] Vector3 spawnPosition; 
     [SerializeField, Range(1, 50)] float spawningRange = 5;
     [Header("Horde Informations")]
     [SerializeField] Transform hordeParent; 
@@ -54,8 +55,9 @@ public class LDJ_GoblinsManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3.left * spawningRange)); 
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(spawnPosition, .5f);
+        Gizmos.DrawWireSphere(spawnPosition, spawningRange); 
     }
     #endregion
 
@@ -73,7 +75,7 @@ public class LDJ_GoblinsManager : MonoBehaviour
             LDJ_GoblinAgent _goblin; 
             for (int i = 0; i < instanceCounts; i++)
             {
-                _goblin = Instantiate(instanciedAgent, transform.position + new Vector3(Random.Range(0, spawningRange), 0, Random.Range(0, spawningRange)), Quaternion.identity, hordeParent ? hordeParent : null);
+                _goblin = Instantiate(instanciedAgent, spawnPosition + new Vector3(Random.Range(0, spawningRange), 0, Random.Range(0, spawningRange)), Quaternion.identity, hordeParent ? hordeParent : null);
                 OnSpeedModified += _goblin.SetSpeed;
                 _goblin.OnAgentHit += HitHorde;
                 _goblin.OnHitPlayer += HitPlayer; 
