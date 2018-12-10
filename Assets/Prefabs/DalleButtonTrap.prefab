@@ -1179,7 +1179,8 @@ MonoBehaviour:
   interuptor: {fileID: 0}
   weightNeeded: 3
   isActif: 0
-  isHeavy: 1
+  isHeavy: 0
+  isTrap: 1
   radiusGizmo: 1
   rangeGizmo: 1
   heightGizmo: 1
