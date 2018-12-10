@@ -12762,10 +12762,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullInventoryAnchor: {fileID: 1082216513}
   healthAnchor: {fileID: 1082216512}
+  deathMenuAnchor: {fileID: 0}
   endGameMenuAnchor: {fileID: 1082216510}
   endMapMenuAnchor: {fileID: 0}
   mainMenuAnchor: {fileID: 0}
   pauseMenuAnchor: {fileID: 1082216511}
+  deathMenuDefaultButton: {fileID: 0}
   endGameMenuDefaultButton: {fileID: 0}
   endMapMenuDefaultButton: {fileID: 0}
   mainMenuDefaultButton: {fileID: 0}

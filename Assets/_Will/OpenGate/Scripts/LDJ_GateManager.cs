@@ -51,6 +51,7 @@ public class LDJ_GateManager : MonoBehaviour
     #region UniMeths
     private void OnDrawGizmos()
     {
+        if (!interuptor) return;
         Vector3 _Distance = new Vector3(0, heightGizmo, rangeGizmo);
         Gizmos.color = isActif? actifColor : unactifColor;
         Gizmos.DrawSphere(interuptor.transform.position+(_Distance), radiusGizmo);
