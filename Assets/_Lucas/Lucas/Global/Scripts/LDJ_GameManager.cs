@@ -99,6 +99,23 @@ public class LDJ_GameManager : MonoBehaviour
     #endregion
 
     /// <summary>
+    /// Triggers the end of this level
+    /// </summary>
+    public void EndLevel()
+    {
+        // If this is not the last level, triggers the end map menu
+        if (currentLevel < mapsStartPoints.Count - 1)
+        {
+            LDJ_UIManager.Instance.EndMapMenu();
+        }
+        // If this is the last one, triggers the end of the game
+        else
+        {
+            LDJ_UIManager.Instance.EndGameMenu();
+        }
+    }
+
+    /// <summary>
     /// Get to the next level
     /// </summary>
     public void NextLevel()

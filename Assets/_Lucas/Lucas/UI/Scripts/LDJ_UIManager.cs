@@ -185,7 +185,7 @@ public class LDJ_UIManager : MonoBehaviour
         }
 
         // If not inventory item existing contain the same type, instantiate the new object UI element and initializes it
-        LDJ_UIInventoryItem _newItem = Instantiate(Resources.Load<LDJ_UIInventoryItem>("InventoryItem"), fullInventoryAnchor.transform, true);
+        LDJ_UIInventoryItem _newItem = Instantiate(Resources.Load<LDJ_UIInventoryItem>("InventoryItem"), fullInventoryAnchor.transform, false);
         _newItem.Init(_object);
 
         // Add the instantiated object to the list
@@ -459,8 +459,6 @@ public class LDJ_UIManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        // Opens the main menu on start
-        MainMenu();
 	}
 	
 	// Update is called once per frame

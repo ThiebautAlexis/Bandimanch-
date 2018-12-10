@@ -695,12 +695,11 @@ public class LDJ_Player : MonoBehaviour
         aimsCursor.transform.forward = Camera.main.transform.forward;
         lookY = -1;
 
-        // Set the cursor as invisible
-        Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-
         // Set the player as non controllable when a menu is open
         LDJ_UIManager.Instance.OnMenuOpened += SetControllableAfterMenu;
+
+        // Opens the main menu on start
+        LDJ_UIManager.Instance.MainMenu();
     }
 	
 	// Update is called once per frame
