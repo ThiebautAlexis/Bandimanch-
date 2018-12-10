@@ -47,6 +47,8 @@ public class LDJ_UIManager : MonoBehaviour
     // The health anchor
     [SerializeField] private GameObject healthAnchor = null;
 
+    // Death menu anchor
+    [SerializeField] private GameObject deathMenuAnchor = null;
     // End game meu anchor
     [SerializeField] private GameObject endGameMenuAnchor = null;
     // End map menu anchor
@@ -57,6 +59,8 @@ public class LDJ_UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenuAnchor = null;
 
     [Header("Default Menus Buttons :")]
+    // The default activated button for death menu
+    [SerializeField] private Button deathMenuDefaultButton = null;
     // The default activated button for end game menu
     [SerializeField] private Button endGameMenuDefaultButton = null;
     // The default activated button for end map menu
@@ -258,12 +262,41 @@ public class LDJ_UIManager : MonoBehaviour
 
     #region Menu
     /// <summary>
-    /// Opens or closes the end of the game
+    /// Opens or closes the death menu
     /// </summary>
-    public void EndGame()
+    public void DeathMenu()
     {
         // Get if the menu should be opened or closed
-        bool _doOpen = !pauseMenuAnchor.activeInHierarchy;
+        bool _doOpen = !deathMenuAnchor.activeInHierarchy;
+
+        // Active the menu
+        deathMenuAnchor.SetActive(_doOpen);
+        healthAnchor.SetActive(!_doOpen);
+
+        // Set the cursor
+        Cursor.visible = _doOpen;
+
+        // Set the default button as activated
+        if (_doOpen)
+        {
+            eventSystem.SetSelectedGameObject(deathMenuDefaultButton.gameObject);
+        }
+        else
+        {
+            eventSystem.SetSelectedGameObject(null);
+        }
+
+        // Calls the menu event
+        OnMenuOpened?.Invoke(_doOpen);
+    }
+
+    /// <summary>
+    /// Opens or closes the end of the game menu
+    /// </summary>
+    public void EndGameMenu()
+    {
+        // Get if the menu should be opened or closed
+        bool _doOpen = !endGameMenuAnchor.activeInHierarchy;
 
         // Active the menu
         endGameMenuAnchor.SetActive(_doOpen);
@@ -277,6 +310,10 @@ public class LDJ_UIManager : MonoBehaviour
         {
             eventSystem.SetSelectedGameObject(endGameMenuDefaultButton.gameObject);
         }
+        else
+        {
+            eventSystem.SetSelectedGameObject(null);
+        }
 
         // Calls the menu event
         OnMenuOpened?.Invoke(_doOpen);
@@ -288,7 +325,7 @@ public class LDJ_UIManager : MonoBehaviour
     public void EndMapMenu()
     {
         // Get if the menu should be opened or closed
-        bool _doOpen = !pauseMenuAnchor.activeInHierarchy;
+        bool _doOpen = !endMapMenuAnchor.activeInHierarchy;
 
         // Active the menu
         endMapMenuAnchor.SetActive(_doOpen);
@@ -302,6 +339,10 @@ public class LDJ_UIManager : MonoBehaviour
         {
             eventSystem.SetSelectedGameObject(endMapMenuDefaultButton.gameObject);
         }
+        else
+        {
+            eventSystem.SetSelectedGameObject(null);
+        }
 
         // Calls the menu event
         OnMenuOpened?.Invoke(_doOpen);
@@ -313,7 +354,7 @@ public class LDJ_UIManager : MonoBehaviour
     public void MainMenu()
     {
         // Get if the menu should be opened or closed
-        bool _doOpen = !pauseMenuAnchor.activeInHierarchy;
+        bool _doOpen = !mainMenuAnchor.activeInHierarchy;
 
         // Active the menu
         mainMenuAnchor.SetActive(_doOpen);
@@ -326,6 +367,10 @@ public class LDJ_UIManager : MonoBehaviour
         if (_doOpen)
         {
             eventSystem.SetSelectedGameObject(mainMenuDefaultButton.gameObject);
+        }
+        else
+        {
+            eventSystem.SetSelectedGameObject(null);
         }
 
         // Calls the menu event
@@ -350,6 +395,10 @@ public class LDJ_UIManager : MonoBehaviour
         if (_doOpen)
         {
             eventSystem.SetSelectedGameObject(pauseMenuDefaultButton.gameObject);
+        }
+        else
+        {
+            eventSystem.SetSelectedGameObject(null);
         }
 
         // Calls the menu event
@@ -392,7 +441,8 @@ public class LDJ_UIManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-		
+        // Opens the main menu on start
+        MainMenu();
 	}
 	
 	// Update is called once per frame
