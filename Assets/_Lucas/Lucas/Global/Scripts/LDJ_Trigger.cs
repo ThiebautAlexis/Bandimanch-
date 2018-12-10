@@ -32,11 +32,6 @@ public class LDJ_Trigger : MonoBehaviour
     #endregion
 
     #region Fields / Accessors
-    [SerializeField] private TriggerType triggerType;
-    public TriggerType TriggerType
-    {
-        get { return triggerType; }
-    }
     #endregion
 
     #region Methods
@@ -47,22 +42,10 @@ public class LDJ_Trigger : MonoBehaviour
     #region Unity Methods
     private void OnTriggerEnter(Collider other)
     {
+        // If the player enters the zone, trigger the end of the level
         if (other.GetComponent<LDJ_Player>())
         {
-            switch (triggerType)
-            {
-                case TriggerType.EndLevel:
-                    LDJ_UIManager.Instance.EndMapMenu();
-                    break;
-                case TriggerType.EndGame:
-                    LDJ_UIManager.Instance.EndGameMenu();
-                    break;
-                case TriggerType.HordeTrigger:
-                    // Activate horde
-                    break;
-                default:
-                    break;
-            }
+            LDJ_GameManager.Instance.EndLevel();
         }
     }
 
