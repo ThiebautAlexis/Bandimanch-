@@ -676,7 +676,7 @@ PlayerSettings:
     Collab: 0
     ErrorHub: 0
     Hub: 0
-    UNet: 0
+    UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 3
   cloudProjectId: 37ae3653-01c4-4800-ac0f-5a4936f09f46
