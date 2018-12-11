@@ -1175,8 +1175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552fa19dd6ca7984a9af6a1db34fddef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avoidanceRangeMin: 0.1
-  avoidanceRangeMax: 0.5
+  avoidanceRangeMin: 0.5
+  avoidanceRangeMax: 1
   radiusChangementTime: 5
   startingTimer: 1
 --- !u!137 &137738617853659836

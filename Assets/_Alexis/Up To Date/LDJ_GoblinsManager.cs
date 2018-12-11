@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq; 
 using UnityEngine;
 using Random = UnityEngine.Random; 
 
@@ -8,7 +9,7 @@ using Random = UnityEngine.Random;
 public class LDJ_GoblinsManager : MonoBehaviour
 {
     #region Events
-    public event Action OnHordeActivated;
+    public event Func<IEnumerator> OnHordeActivated;
     public event Action OnHordeHit;
     public event Action<float> OnPlayerHit; 
     public Action<float> OnSpeedModified; 
@@ -20,6 +21,8 @@ public class LDJ_GoblinsManager : MonoBehaviour
     [SerializeField, Range(1, 250)] int instanceCounts = 10;
     [SerializeField] Vector3 spawnPosition; 
     [SerializeField, Range(1, 50)] float spawningRange = 5;
+    [Header("Texture Informations")]
+    [SerializeField] Texture2D[] goblinTextures; 
     [Header("Horde Informations")]
     [SerializeField] Transform hordeParent; 
     [SerializeField] Transform hordeTarget;
@@ -49,8 +52,8 @@ public class LDJ_GoblinsManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider _coll)
     {
-        if (_coll.GetComponent<LDJ_Player>())
-            OnHordeActivated?.Invoke(); 
+        if (_coll.GetComponent<LDJ_Player>() && OnHordeActivated != null)
+            StartCoroutine(OnHordeActivated?.Invoke()); 
     }
 
     private void OnDrawGizmos()
@@ -68,14 +71,20 @@ public class LDJ_GoblinsManager : MonoBehaviour
     /// Set them a speed and a target
     /// Add Callback on events
     /// </summary>
-    private void InitHorde()
+    private IEnumerator InitHorde()
     {
         if(instanciedAgent)
         {
             LDJ_GoblinAgent _goblin; 
             for (int i = 0; i < instanceCounts; i++)
             {
+                yield return new WaitForSeconds(Random.Range(.1f, .5f)); 
                 _goblin = Instantiate(instanciedAgent, spawnPosition + new Vector3(Random.Range(0, spawningRange), 0, Random.Range(0, spawningRange)), Quaternion.identity, hordeParent ? hordeParent : null);
+                _goblin.transform.localScale *= Random.Range(.5f, 1.5f);
+                if(goblinTextures.Length > 0)
+                {
+                    _goblin.GetComponentsInChildren<Renderer>().ToList().ForEach(r => r.material.mainTexture = goblinTextures[Random.Range(0, goblinTextures.Length)]);
+                }
                 OnSpeedModified += _goblin.SetSpeed;
                 _goblin.OnAgentHit += HitHorde;
                 _goblin.OnHitPlayer += HitPlayer; 
@@ -90,7 +99,7 @@ public class LDJ_GoblinsManager : MonoBehaviour
                     _goblin.InitAgent(currentSpeed, leader.transform); 
             }
         }
-        OnHordeActivated -= InitHorde; 
+        OnHordeActivated -= InitHorde;
     }
 
     /// <summary>
