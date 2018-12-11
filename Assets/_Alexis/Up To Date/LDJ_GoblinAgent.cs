@@ -139,6 +139,7 @@ public class LDJ_GoblinAgent : MonoBehaviour
     private void Awake()
     {
         RandomRadiusCallback += GetRandomRadius;
+        if (!LDJ_UIManager.Instance) return; 
         LDJ_UIManager.Instance.OnMenuOpened += PauseMovement; 
     }
     private void Start()
