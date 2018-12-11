@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4317177618206922}
   - component: {fileID: 33368033790005902}
   - component: {fileID: 23504758258842134}
+  - component: {fileID: 65228524790978996}
   m_Layer: 0
   m_Name: DoorEnterNExit
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1656646861438120}
   m_Mesh: {fileID: 4300000, guid: eea80871337911446a914465f7110fe3, type: 3}
+--- !u!65 &65228524790978996
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656646861438120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 99.67704, y: 301.31277, z: 577.8101}
+  m_Center: {x: 0.000001907349, y: 140.10814, z: 0}
