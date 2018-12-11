@@ -21,19 +21,19 @@ public class LDJ_Player : MonoBehaviour
     * 
     * Objectives :
     *   • Core :
-    *       - Manages the inventory
-    *       - Throw objects behind or in front of the player
-    *       - Fire camp system
-    *       - Upgrade statistics
+    *       - 
     *   
     *   • Polish :
-    *       - Active elements in the area
     *       - Make the speed of the character increase before being at its maximum value
     *       
     * Dones :
     *   • Core :
     *       - Move the player in the area
     *       - Grab objects on ground
+    *       - Manages the inventory
+    *       - Throw objects behind or in front of the player
+    *       - Fire camp system
+    *       - Upgrade statistics
 	*/
 
     #region Events
@@ -179,6 +179,8 @@ public class LDJ_Player : MonoBehaviour
     [SerializeField] private Vector3 halfExtents = Vector3.one;
     // What layer the object collides
     [SerializeField] private LayerMask whatCollide = new LayerMask();
+    // All the character materials
+    [SerializeField] private List<Material> materials = new List<Material>();
     // The rigidbody of the character
     [SerializeField] private new Rigidbody rigidbody = null;
     // The sprite of the aims cursos
@@ -547,10 +549,33 @@ public class LDJ_Player : MonoBehaviour
     // Set the player invulnerable during a certain amount of time
     private IEnumerator SetInvulnerability()
     {
+        // Creates the invulnerability timer & enable this one
+        float _timer = 0;
         isInvulnerable = true;
 
-        yield return new WaitForSeconds(invulnerabilityTime);
+        // Set the character flash between red & white every 0.1 seconds
+        while (_timer < invulnerabilityTime)
+        {
+            foreach (Material _material in materials)
+            {
+                _material.color = Color.red;
+            }
 
+            yield return new WaitForSeconds(.1f);
+
+            _timer += Time.deltaTime;
+
+            foreach (Material _material in materials)
+            {
+                _material.color = Color.white;
+            }
+
+            yield return new WaitForSeconds(.1f);
+
+            _timer += Time.deltaTime;
+        }
+
+        // Set invulnerability off
         isInvulnerable = false;
     }
 
@@ -665,6 +690,12 @@ public class LDJ_Player : MonoBehaviour
         if (!rigidbody) rigidbody = GetComponent<Rigidbody>();
         if (!aimsCursor) aimsCursor = GetComponentInChildren<SpriteRenderer>();
         if (!animator) animator = GetComponentInChildren<Animator>();
+        // Get alls materials on the character
+        if (materials.Count == 0)
+        {
+            materials = GetComponentsInChildren<SkinnedMeshRenderer>().Select(m => m.material).ToList();
+            materials.AddRange(GetComponentsInChildren<MeshRenderer>().Select(m => m.material).ToList());
+        }
 
         // Get the half extents of the box collider to use in overlap
         halfExtents = Vector3.Scale(collider.size, collider.transform.lossyScale) / 2;

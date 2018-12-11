@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23107599866643642}
   - component: {fileID: 114248785403393598}
   - component: {fileID: 65162423240624934}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4323807105398060}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Arbre a jambon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4986035803497150}
   - component: {fileID: 33070664505586802}
   - component: {fileID: 23680118022716710}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Jambons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4819002082762478}
   - component: {fileID: 65957844993362346}
-  m_Layer: 14
+  m_Layer: 18
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,15 +84,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1849213189500024}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.78, y: 0, z: 23.74}
+  m_LocalRotation: {x: -0, y: -0.18837483, z: -0, w: 0.9820972}
+  m_LocalPosition: {x: -1.51, y: 0, z: 4.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4986035803497150}
   - {fileID: 4923069265095052}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -21.716002, z: 0}
 --- !u!4 &4819002082762478
 Transform:
   m_ObjectHideFlags: 1
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasMeat: 1
-  hamAnchor: {fileID: 1348483543284286}
+  hamAnchor: {fileID: 1923962739276788}
   ham:
     resourcePrefabName: Ham
     instance: {fileID: 0}

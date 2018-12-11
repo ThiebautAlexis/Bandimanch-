@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TMPro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,8 +14,7 @@ public class LDJ_UIManager : MonoBehaviour
     * 
     * Objectives :
     *   • Core :
-
-    *       - Select an item in the backpack
+    *       - 
     *   
     *   • Polish :
     *       - 
@@ -23,6 +23,7 @@ public class LDJ_UIManager : MonoBehaviour
     *   • Core :
     *       - Open / Close the backpack
     *       - Update the backpack content
+    *       - Select an item in the backpack
 	*/
 
     #region Events
@@ -99,6 +100,9 @@ public class LDJ_UIManager : MonoBehaviour
     // The distance of the UI items elements from the anchor
     [SerializeField] private int itemDistanceFromAnchor = 200;
 
+    // The total weight text of the inventory
+    [SerializeField] private TextMeshProUGUI totalInventoryWeight = null;
+
     [Header("Event System :")]
     // The event system of the canvas
     [SerializeField] private EventSystem eventSystem = null;
@@ -174,6 +178,11 @@ public class LDJ_UIManager : MonoBehaviour
     /// <param name="_object">New object in the inventory</param>
     public void AddInventoryItem(LDJ_ObjectCharacteristics _object)
     {
+        // Update the inventory weight
+        totalInventoryWeight.text = $"{LDJ_Player.Instance.Weight}/{LDJ_Player.Instance.MaxWeight}";
+
+        Debug.Log("Weight => " + LDJ_Player.Instance.Weight + " | Max => " + LDJ_Player.Instance.MaxWeight);
+
         // If there is already an inventory item of the same type not full, add it to it
         LDJ_UIInventoryItem _inventoryItem = null;
 
@@ -225,6 +234,9 @@ public class LDJ_UIManager : MonoBehaviour
     /// <returns>Returns true if the stack is empty, false otherwise</returns>
     public LDJ_ObjectCharacteristics RemoveInventoryItem(LDJ_ObjectCharacteristics _object)
     {
+        // Update the inventory weight
+        totalInventoryWeight.text = $"{LDJ_Player.Instance.Weight}/{LDJ_Player.Instance.MaxWeight}";
+
         // If there is already an inventory item of the same type not full, add it to it
         LDJ_UIInventoryItem _inventoryItem = null;
         if (_inventoryItem = inventoryItems.Where(i => i.ObjectsReferences.Contains(_object)).First())
@@ -458,7 +470,9 @@ public class LDJ_UIManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-	}
+        // Set the initial inventory weight
+        totalInventoryWeight.text = $"{LDJ_Player.Instance.Weight}/{LDJ_Player.Instance.MaxWeight}";
+    }
 	
 	// Update is called once per frame
 	void Update ()

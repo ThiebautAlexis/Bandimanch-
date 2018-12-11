@@ -94,6 +94,15 @@ public class LDJ_CameraBehaviour : MonoBehaviour
 
                 _newCumbersomeMeshes.Add(_mesh, _meshColor.a);
 
+                // Set the material transparency possible if it is an opaque material
+                if (_mesh.material.GetInt("_ZWrite") == 1)
+                {
+                    _mesh.material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                    _mesh.material.EnableKeyword("_ALPHAPREMULTIPLY_ON");
+                    _mesh.material.renderQueue = 3000;
+                }
+
+                // Set the material transparency
                 _mesh.material.color = new Color(_meshColor.r, _meshColor.g, _meshColor.b, .25f);
             }
         }
@@ -107,6 +116,15 @@ public class LDJ_CameraBehaviour : MonoBehaviour
             {
                 _meshColor = _mesh.material.color;
 
+                // Restaure the material transparency if it is an opaque material
+                if (_mesh.material.GetInt("_ZWrite") == 1)
+                {
+                    _mesh.material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                    _mesh.material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    _mesh.material.renderQueue = -1;
+                }
+
+                // Restaure the material transparency
                 _mesh.material.color = new Color(_meshColor.r, _meshColor.g, _meshColor.b, cumbersomeMeshes[_mesh]);
 
                 _newCumbersomeMeshes.Remove(_mesh);

@@ -61335,8 +61335,13 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isControllable: 1
   isInvulnerable: 0
+<<<<<<< Updated upstream
   speed: 7
   throwForceVelocity: 45
+=======
+  speed: 6
+  throwForceVelocity: 50
+>>>>>>> Stashed changes
   currency: 0
   health: 3
   invulnerabilityTime: 0.5
@@ -61363,9 +61368,14 @@ MonoBehaviour:
   whatCollide:
     serializedVersion: 2
     m_Bits: 245760
+  materials: []
   rigidbody: {fileID: 54878825499928548}
   aimsCursor: {fileID: 212495729794519780}
+<<<<<<< Updated upstream
   detectionBoxExtents: {x: 1.5, y: 3, z: 1.5}
+=======
+  detectionBoxExtents: {x: 2, y: 2, z: 2}
+>>>>>>> Stashed changes
   whatDetect:
     serializedVersion: 2
     m_Bits: 296960

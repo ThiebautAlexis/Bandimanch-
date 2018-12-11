@@ -68,7 +68,7 @@ public class LDJ_GameManager : MonoBehaviour
     {
         LDJ_Player.Instance.SellInventory();
 
-        moneyAmount.text = LDJ_Player.Instance.Currency.ToString();
+        moneyAmount.text = $"Gold : {LDJ_Player.Instance.Currency.ToString()}";
 
         randomUpgradeObject.interactable = LDJ_Player.Instance.Currency >= 5;
         specificUpgradeObject.interactable = LDJ_Player.Instance.Currency >= 10;
