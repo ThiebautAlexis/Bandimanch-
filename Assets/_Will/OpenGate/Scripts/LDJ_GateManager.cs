@@ -40,6 +40,7 @@ public class LDJ_GateManager : MonoBehaviour
     #region Meths
     void GetInventoryWeight()
     {
+        if (!playerAdventurer) return;
         if (!isTrap)
         {
             if (isHeavy) isActif = playerAdventurer.Weight >= weightNeeded ? true : false;
