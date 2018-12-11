@@ -304,7 +304,7 @@ public class LDJ_Player : MonoBehaviour
             }
         }
 
-        selectedObject = LDJ_UIManager.Instance.GetSelectedItem.ObjectsReferences[0];
+        selectedObject = null;
 
         // Sound
         //AkSoundEngine.PostEvent("Play_Eat", gameObject);
