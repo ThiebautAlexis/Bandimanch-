@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/__Final/LDJ43_BandimanchoLvl1.unity
+    guid: 8cd59a40cd1f9f243a5338e081c013d8
   m_configObjects: {}
