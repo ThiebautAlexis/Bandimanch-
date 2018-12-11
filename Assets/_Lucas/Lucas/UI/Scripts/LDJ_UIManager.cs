@@ -95,7 +95,11 @@ public class LDJ_UIManager : MonoBehaviour
     }
     public LDJ_UIInventoryItem GetSelectedItem
     {
-        get { return inventoryItems[selectedItemIndex]; }
+        get
+        {
+            if (inventoryItems.Count == 0) return null;
+            else return inventoryItems[selectedItemIndex];
+        }
     }
     // The distance of the UI items elements from the anchor
     [SerializeField] private int itemDistanceFromAnchor = 200;
