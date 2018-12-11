@@ -703,7 +703,7 @@ public class LDJ_Player : MonoBehaviour
         lookY = -1;
 
         // Lock the cursor inside the game window
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
 
         // Set the player as non controllable when a menu is open
         LDJ_UIManager.Instance.OnMenuOpened += SetControllableAfterMenu;

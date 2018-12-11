@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23916279153839466}
   - component: {fileID: 95925267542904068}
   - component: {fileID: 65962587335013750}
+  - component: {fileID: 208162158990678872}
   m_Layer: 0
   m_Name: DoorEnterNExit
   m_TagString: Untagged
@@ -45160,3 +45161,18 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
+--- !u!208 &208162158990678872
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1424658317451506}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 49.839, y: 150.656, z: 288.905}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 140.108, z: 0}
+  m_TimeToStationary: 0.5

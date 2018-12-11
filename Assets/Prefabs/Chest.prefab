@@ -26321,7 +26321,6 @@ MonoBehaviour:
   allPossibleObjectToDrop:
   - {fileID: 1634637767768046, guid: a3331ebc774aab947a1b80b0d15e3564, type: 2}
   - {fileID: 1993204312388886, guid: 3ff383f01983fe5479a677294ce5bd9f, type: 2}
-  - {fileID: 1361350029370312, guid: 02d9b5657febc35418e23c0467ee1551, type: 2}
   - {fileID: 1950596809501720, guid: 98b28024a5066d743b2f18f7931a5b9c, type: 2}
   - {fileID: 1039512036094464, guid: af7d12f75e2ece74e876da30190f465b, type: 2}
   - {fileID: 1674180889000892, guid: 75c4d2012c4021c47aa6e38bfa61ca83, type: 2}
