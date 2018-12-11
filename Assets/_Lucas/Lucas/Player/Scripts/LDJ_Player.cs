@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -453,20 +452,28 @@ public class LDJ_Player : MonoBehaviour
             selectedObject = LDJ_UIManager.Instance.ScrollSelectedItem(false);
         }
 
-        // Get the horizontal & vertical movement of the player look
-        float _lookX = Input.GetAxis(lookXInput);
-        float _lookY = Input.GetAxis(lookYInput);
-
-        // Let the player aims with the look movement
-            // Set the look movement in X & Y
-        _lookX = Mathf.Abs(_lookX) >= .05f ? _lookX : 0;
-        _lookY = Mathf.Abs(_lookY) >= .05f ? _lookY : 0;
-
-        // If the movement has changed, update the aims cursor position
-        if ((lookX != _lookX || _lookY != lookY) && (new Vector2(_lookX, _lookY) != Vector2.zero))
+        // If a goblin is near the player position
+        if (false)
         {
-            lookX = _lookX;
-            lookY = _lookY;
+
+        }
+        else
+        {
+            // Get the horizontal & vertical movement of the player look
+            float _lookX = Input.GetAxis(lookXInput);
+            float _lookY = Input.GetAxis(lookYInput);
+
+            // Let the player aims with the look movement
+            // Set the look movement in X & Y
+            _lookX = Mathf.Abs(_lookX) >= .05f ? _lookX : 0;
+            _lookY = Mathf.Abs(_lookY) >= .05f ? _lookY : 0;
+
+            // If the movement has changed, update the aims cursor position
+            if ((lookX != _lookX || _lookY != lookY) && (new Vector2(_lookX, _lookY) != Vector2.zero))
+            {
+                lookX = _lookX;
+                lookY = _lookY;
+            }
         }
 
         // Set the position of the aims cursor
@@ -694,6 +701,9 @@ public class LDJ_Player : MonoBehaviour
         // Set the aims cursor orientation & position
         aimsCursor.transform.forward = Camera.main.transform.forward;
         lookY = -1;
+
+        // Lock the cursor inside the game window
+        Cursor.lockState = CursorLockMode.Locked;
 
         // Set the player as non controllable when a menu is open
         LDJ_UIManager.Instance.OnMenuOpened += SetControllableAfterMenu;

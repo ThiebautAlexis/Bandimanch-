@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -29,6 +27,7 @@ public class LDJ_GameManager : MonoBehaviour
     #endregion
 
     #region Fields / Accessors
+    [Header("End Map Methods Elements :")]
     // Buttons of the end map menu
     [SerializeField] private Button randomUpgradeObject = null;
     [SerializeField] private Button specificUpgradeObject = null;
@@ -104,7 +103,7 @@ public class LDJ_GameManager : MonoBehaviour
     public void EndLevel()
     {
         // If this is not the last level, triggers the end map menu
-        if (currentLevel < mapsStartPoints.Count - 1)
+        if (currentLevel < mapsStartPoints.Count)
         {
             LDJ_UIManager.Instance.EndMapMenu();
         }
@@ -121,7 +120,7 @@ public class LDJ_GameManager : MonoBehaviour
     public void NextLevel()
     {
         // If the player can go the next level, take him there
-        if (currentLevel < mapsStartPoints.Count - 1)
+        if (currentLevel < mapsStartPoints.Count)
         {
             currentLevel++;
 
