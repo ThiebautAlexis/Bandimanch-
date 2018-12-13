@@ -37,9 +37,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1054035289201300}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.64731, y: 17.543297, z: 1.0738277}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 63.19, y: 0, z: 13.12}
+  m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.336998, y: 0.239997, z: 1.3415112}
+  m_Center: {x: -0.021731645, y: 0.11489661, z: -0.04285863}
 --- !u!114 &114157169337600346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1176,14 +1176,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a71a95dbd6a3e47a692b61d0ca1f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interuptor: {fileID: 0}
-  weightNeeded: 3
+  interuptor: {fileID: 1054035289201300}
+  weightNeeded: 5
   isActif: 0
   isHeavy: 0
+  isTrap: 0
   radiusGizmo: 1
-  rangeGizmo: 1
+  rangeGizmo: 3.24
   heightGizmo: 1
-  actifColor: {r: 0, g: 0, b: 0, a: 0}
-  unactifColor: {r: 0, g: 0, b: 0, a: 0}
+  actifColor: {r: 0, g: 0.8113208, b: 0.0582919, a: 1}
+  unactifColor: {r: 0.764151, g: 0, b: 0, a: 1}
   playerAdventurer: {fileID: 0}
   objectToInteract: {fileID: 0}
