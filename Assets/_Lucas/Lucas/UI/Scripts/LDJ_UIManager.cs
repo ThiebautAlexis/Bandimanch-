@@ -172,6 +172,9 @@ public class LDJ_UIManager : MonoBehaviour
         // Activate the event
         OnSetSelectedItem?.Invoke(_selected);
 
+        // Sound
+        LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.PlayerInventory, LDJ_AudioManager.Instance.CameraAudioSource);
+
         // Returns its first object
         return _selected.ObjectsReferences[0];
     }
@@ -298,6 +301,9 @@ public class LDJ_UIManager : MonoBehaviour
         if (_doOpen)
         {
             eventSystem.SetSelectedGameObject(deathMenuDefaultButton.gameObject);
+
+            // Sound
+            LDJ_AudioManager.Instance.SetAudio(LDJ_AudioManager.Instance.CameraAudioSource, null);
         }
         else
         {
@@ -362,10 +368,16 @@ public class LDJ_UIManager : MonoBehaviour
         if (_doOpen)
         {
             eventSystem.SetSelectedGameObject(endMapMenuDefaultButton.gameObject);
+
+            // Sound
+            LDJ_AudioManager.Instance.SetAudio(LDJ_AudioManager.Instance.CameraAudioSource, LDJ_AudioManager.Instance.FireCampTheme);
         }
         else
         {
             eventSystem.SetSelectedGameObject(null);
+
+            // Sound
+            LDJ_AudioManager.Instance.SetAudio(LDJ_AudioManager.Instance.CameraAudioSource, LDJ_AudioManager.Instance.MainTheme);
         }
 
         // Set if the pause menu can be opened or closed
@@ -394,10 +406,16 @@ public class LDJ_UIManager : MonoBehaviour
         if (_doOpen)
         {
             eventSystem.SetSelectedGameObject(mainMenuDefaultButton.gameObject);
+
+            // Sound
+            LDJ_AudioManager.Instance.SetAudio(LDJ_AudioManager.Instance.CameraAudioSource, null);
         }
         else
         {
             eventSystem.SetSelectedGameObject(null);
+
+            // Sound
+            LDJ_AudioManager.Instance.SetAudio(LDJ_AudioManager.Instance.CameraAudioSource, LDJ_AudioManager.Instance.MainTheme);
         }
 
         // Set if the pause menu can be opened or closed
