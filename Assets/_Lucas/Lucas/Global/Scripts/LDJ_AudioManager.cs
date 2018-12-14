@@ -206,6 +206,11 @@ public class LDJ_AudioManager : MonoBehaviour
             Debug.Log($"The audio clip you want to play is null !");
             return;
         }
+        else if (_source == null)
+        {
+            Debug.Log($"The audio source you want to use is null !");
+            return;
+        }
 
         _source.PlayOneShot(_clip);
 
@@ -221,6 +226,11 @@ public class LDJ_AudioManager : MonoBehaviour
         if (_clip.Length == 0)
         {
             Debug.Log($"The audio clip you want to play is null !");
+            return;
+        }
+        else if (_source == null)
+        {
+            Debug.Log($"The audio source you want to use is null !");
             return;
         }
 
@@ -270,7 +280,12 @@ public class LDJ_AudioManager : MonoBehaviour
     /// <param name="_clip">Clip to use</param>
     public void SetAudio(AudioSource _source, AudioClip _clip)
     {
-        if (_clip == null)
+        if (_source == null)
+        {
+            Debug.Log($"The audio source you want to use is null !");
+            return;
+        }
+        else if (_clip == null)
         {
             _source.Stop();
             return;

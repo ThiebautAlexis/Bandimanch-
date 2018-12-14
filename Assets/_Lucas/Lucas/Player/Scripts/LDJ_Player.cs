@@ -248,7 +248,7 @@ public class LDJ_Player : MonoBehaviour
         LDJ_UIManager.Instance.DeathMenu();
 
         // Sound
-        LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.PlayerDeath, LDJ_AudioManager.Instance.CameraAudioSource);
+        LDJ_AudioManager.Instance?.PlayAudio(LDJ_AudioManager.Instance.PlayerDeath, LDJ_AudioManager.Instance.CameraAudioSource);
         // AkSoundEngine.PostEvent("Stop_Footsetps", gameObject);
         //AkSoundEngine.PostEvent("Play_Die", gameObject);
     }
@@ -308,7 +308,7 @@ public class LDJ_Player : MonoBehaviour
         selectedObject = null;
 
         // Sound
-        LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.PlayerEat, LDJ_AudioManager.Instance.CameraAudioSource);
+        LDJ_AudioManager.Instance?.PlayAudio(LDJ_AudioManager.Instance.PlayerEat, LDJ_AudioManager.Instance.CameraAudioSource);
         //AkSoundEngine.PostEvent("Play_Eat", gameObject);
 
         // Get the total restoration amount
@@ -346,7 +346,7 @@ public class LDJ_Player : MonoBehaviour
                 LDJ_UIManager.Instance.AddInventoryItem(_nearestTree.TakeMeat());
 
                 // Sound
-                LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.MeatTreeCollect, _nearestTree.transform.position);
+                LDJ_AudioManager.Instance?.PlayAudio(LDJ_AudioManager.Instance.MeatTreeCollect, _nearestTree.transform.position);
                 //AkSoundEngine.PostEvent("Play_ObjectPickup", gameObject);
 
                 // If not having a selected object yet, take this one
@@ -362,7 +362,7 @@ public class LDJ_Player : MonoBehaviour
                 _nearestChest.MakeInteraction();
 
                 // Sound
-                LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.ChestOpen, _nearestChest.transform.position);
+                LDJ_AudioManager.Instance?.PlayAudio(LDJ_AudioManager.Instance.ChestOpen, _nearestChest.transform.position);
 
                 return;
             }
@@ -387,7 +387,7 @@ public class LDJ_Player : MonoBehaviour
                 LDJ_UIManager.Instance.AddInventoryItem(_nearestObject.ObjectCharacteristics);
 
                 // Sound
-                LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.GrabObject, _nearestObject.transform.position);
+                LDJ_AudioManager.Instance?.PlayAudio(LDJ_AudioManager.Instance.GrabObject, _nearestObject.transform.position);
                 //AkSoundEngine.PostEvent("Play_ObjectPickup", gameObject);
 
                 // If not having a selected object yet, take this one
@@ -542,7 +542,7 @@ public class LDJ_Player : MonoBehaviour
         objects.Clear();
 
         // Sound
-        LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.PlayerSellInventory, LDJ_AudioManager.Instance.CameraAudioSource);
+        LDJ_AudioManager.Instance?.PlayAudio(LDJ_AudioManager.Instance.PlayerSellInventory, LDJ_AudioManager.Instance.CameraAudioSource);
     }
 
     // Set if the player is controllable or not when a menu is opened or closed
@@ -649,7 +649,7 @@ public class LDJ_Player : MonoBehaviour
         animator.SetTrigger("Hurt");
 
         // Sound
-        LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.PlayerHit, LDJ_AudioManager.Instance.CameraAudioSource);
+        LDJ_AudioManager.Instance?.PlayAudio(LDJ_AudioManager.Instance.PlayerHit, LDJ_AudioManager.Instance.CameraAudioSource);
         //AkSoundEngine.PostEvent("Play_Hurt", gameObject);
 
         // Start the invulnerability coroutine
@@ -684,7 +684,7 @@ public class LDJ_Player : MonoBehaviour
         }
 
         // Sound
-        LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.PlayerUpdate, LDJ_AudioManager.Instance.CameraAudioSource);
+        LDJ_AudioManager.Instance?.PlayAudio(LDJ_AudioManager.Instance.PlayerUpdate, LDJ_AudioManager.Instance.CameraAudioSource);
     }
     #endregion
 
