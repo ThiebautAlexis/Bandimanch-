@@ -43,7 +43,7 @@ public class LDJ_GameManager : MonoBehaviour
     [SerializeField] private List<Vector3> mapsStartPoints = new List<Vector3>();
 
     // Index of the current level
-    [SerializeField] private int currentLevel = -1;
+    [SerializeField] private int currentLevel = 0;
     #endregion
 
     #region Singleton
@@ -103,7 +103,7 @@ public class LDJ_GameManager : MonoBehaviour
     public void EndLevel()
     {
         // If this is not the last level, triggers the end map menu
-        if (currentLevel < mapsStartPoints.Count - 1)
+        if (currentLevel < mapsStartPoints.Count)
         {
             LDJ_UIManager.Instance.EndMapMenu();
         }
@@ -124,7 +124,7 @@ public class LDJ_GameManager : MonoBehaviour
         {
             currentLevel++;
 
-            LDJ_Player.Instance.transform.position = mapsStartPoints[currentLevel];
+            LDJ_Player.Instance.transform.position = mapsStartPoints[currentLevel - 1];
         }
     }
 

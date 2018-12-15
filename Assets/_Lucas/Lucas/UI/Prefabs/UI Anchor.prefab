@@ -118,7 +118,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -1901,7 +1901,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayerSpecificUpgrade
         m_Mode: 3
         m_Arguments:
@@ -2908,152 +2908,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!1 &1216843763628690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4835160916805566}
-  - component: {fileID: 114069763016126740}
-  - component: {fileID: 114796593972044752}
-  - component: {fileID: 1407491720}
-  m_Layer: 11
-  m_Name: Logic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4835160916805566
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216843763628690}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4258516478891938}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114069763016126740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216843763628690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b29f97c63b7d93549a92241be098cd11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  randomUpgradeObject: {fileID: 114820005851115202}
-  specificUpgradeObject: {fileID: 114769889252679654}
-  randomUpgradeText: {fileID: 114337888361975470}
-  moneyAmount: {fileID: 114325285010580058}
-  mapsStartPoints:
-  - {x: 500, y: 0, z: 500}
-  currentLevel: -1
---- !u!114 &114796593972044752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216843763628690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8babc818fff8dbc4d9a838df3c91cb27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fullInventoryAnchor: {fileID: 1175948748371388}
-  healthAnchor: {fileID: 1368969761302162}
-  deathMenuAnchor: {fileID: 1331207155353362}
-  endGameMenuAnchor: {fileID: 1145074782930290}
-  endMapMenuAnchor: {fileID: 1584700557204226}
-  mainMenuAnchor: {fileID: 1848213500313856}
-  pauseMenuAnchor: {fileID: 1270448822553360}
-  deathMenuDefaultButton: {fileID: 114209165494069094}
-  endGameMenuDefaultButton: {fileID: 114254137986610888}
-  endMapMenuDefaultButton: {fileID: 114002094616503912}
-  mainMenuDefaultButton: {fileID: 114275701826273942}
-  pauseMenuDefaultButton: {fileID: 114701993368024838}
-  playerHealthHearts: []
-  inventoryItems: []
-  selectedItemIndex: 0
-  itemDistanceFromAnchor: 213
-  totalInventoryWeight: {fileID: 114098973006101546}
-  eventSystem: {fileID: 114787683995353496}
---- !u!114 &1407491720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216843763628690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f4980f064054c0498564b4883f5087f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraAudioSource: {fileID: 0}
-  playerAudioSource: {fileID: 0}
-  fireCampTheme: {fileID: 8300000, guid: 87a9a850620320c43bf912ca717abfb2, type: 3}
-  mainTheme: {fileID: 8300000, guid: 0b99a04bcf80880468562a34e3fa9152, type: 3}
-  playerDeath:
-  - {fileID: 8300000, guid: 3588d7816cca74b47840dd0a4fc8eb06, type: 3}
-  - {fileID: 8300000, guid: 8258728f537998542b286674d8468fcd, type: 3}
-  - {fileID: 8300000, guid: 451519cebe66bc440a06c824fff8bad2, type: 3}
-  - {fileID: 8300000, guid: d152e50e2bd29ff459e53e29c924fdac, type: 3}
-  - {fileID: 8300000, guid: 9eb0ef4a77b3f084b98994aae83330e6, type: 3}
-  - {fileID: 8300000, guid: eb5ea1b6cd3e7c943be369b72c98bd56, type: 3}
-  - {fileID: 8300000, guid: 1d91a8fdae6922f4c860db49198b92cf, type: 3}
-  - {fileID: 8300000, guid: c4d5d6b8f4e255c4fb34d1f363e06245, type: 3}
-  - {fileID: 8300000, guid: 30b79ae0a3fd0db4185725614fc27d3c, type: 3}
-  playerEat: {fileID: 8300000, guid: fec2cf26b2b35c844962dda6d0cac7ca, type: 3}
-  playerHit:
-  - {fileID: 8300000, guid: 5d5bc845617a8504fa67d4b5c3caaf51, type: 3}
-  - {fileID: 8300000, guid: 41ff05c81adc478498955ed7d0eaa6ac, type: 3}
-  - {fileID: 8300000, guid: 72b18f53639b24441b9c1e1a7be419e8, type: 3}
-  - {fileID: 8300000, guid: 6bb426121f2f823479b61d3afd552010, type: 3}
-  - {fileID: 8300000, guid: 710c72823cfe5934394b686dba994b97, type: 3}
-  - {fileID: 8300000, guid: a182c3c2dc3aabe4986aa3c1cb5e76cf, type: 3}
-  - {fileID: 8300000, guid: 9cefb65060326374f8e0f00ecd407c0a, type: 3}
-  - {fileID: 8300000, guid: fb71aa74bc2d3d94495c5bc2104329f0, type: 3}
-  playerInventory: {fileID: 8300000, guid: 2427917fcec874347a9034e70ef147db, type: 3}
-  playerSellInventory: {fileID: 0}
-  playerUpdate: {fileID: 8300000, guid: 2383d5b3cb8a6e546a44c193f37b7c28, type: 3}
-  goblinNoise: {fileID: 0}
-  chestOpen: {fileID: 8300000, guid: 8e60c89e013646845abc7356597948f9, type: 3}
-  grabObject: {fileID: 8300000, guid: ac471c220e7b4a448912703a10fc2d91, type: 3}
-  meatTreeCollect: {fileID: 0}
-  axeHit: {fileID: 0}
-  axeThrow: {fileID: 8300000, guid: 1993093d35cf4454eb4c26f01aede1d5, type: 3}
-  chairHit: {fileID: 8300000, guid: dc665a32815eca94a87add30bf3dea0d, type: 3}
-  chairThrow: {fileID: 0}
-  coinHit: {fileID: 0}
-  coinThrow: {fileID: 0}
-  holyHit: {fileID: 0}
-  holyThrow: {fileID: 0}
-  meatHit: {fileID: 8300000, guid: a24d85815169a4a4a9f434d8a5e32cd8, type: 3}
-  meatThrow: {fileID: 0}
-  panHit: {fileID: 8300000, guid: ee793028a9e5ce2499a067df0ccfcfc6, type: 3}
-  panThrow: {fileID: 0}
-  plateHit: {fileID: 0}
-  plateThrow: {fileID: 0}
-  shieldHit: {fileID: 0}
-  shieldThrow: {fileID: 0}
-  spearHit: {fileID: 8300000, guid: dbd6dd81f94f3b447b1baba142c40cc3, type: 3}
-  spearThrow: {fileID: 0}
-  swordHit: {fileID: 8300000, guid: 06ffd23a6565a2d4cbb1111191ba7d01, type: 3}
-  swordThrow: {fileID: 0}
-  uiHighlight: {fileID: 8300000, guid: 99d94eb2e1cbd5d4da0ee92c80ac175d, type: 3}
 --- !u!1 &1224503200172342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3689,7 +3543,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -3700,7 +3554,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114796593972044752}
+      - m_Target: {fileID: 0}
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -3939,7 +3793,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -4102,7 +3956,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114796593972044752}
+      - m_Target: {fileID: 0}
         m_MethodName: PauseMenu
         m_Mode: 1
         m_Arguments:
@@ -5215,7 +5069,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 114796593972044752}
+      - m_Target: {fileID: 0}
         m_MethodName: set_CanOpenPauseMenu
         m_Mode: 6
         m_Arguments:
@@ -6952,7 +6806,6 @@ Transform:
   m_Children:
   - {fileID: 224908915772741884}
   - {fileID: 4393880701565080}
-  - {fileID: 4835160916805566}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7129,7 +6982,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayerSpecificUpgrade
         m_Mode: 3
         m_Arguments:
@@ -7993,7 +7846,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -8582,7 +8435,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 114796593972044752}
+      - m_Target: {fileID: 0}
         m_MethodName: set_CanOpenPauseMenu
         m_Mode: 6
         m_Arguments:
@@ -9870,7 +9723,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayerSell
         m_Mode: 1
         m_Arguments:
@@ -10111,7 +9964,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayerRandomUpgrade
         m_Mode: 1
         m_Arguments:
@@ -10328,7 +10181,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayerSpecificUpgrade
         m_Mode: 3
         m_Arguments:
@@ -10589,7 +10442,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
@@ -11547,7 +11400,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114796593972044752}
+      - m_Target: {fileID: 0}
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -11792,7 +11645,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114069763016126740}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayerEatAll
         m_Mode: 1
         m_Arguments:
