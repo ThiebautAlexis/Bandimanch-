@@ -47,7 +47,7 @@ public class LDJ_GoblinsManager : MonoBehaviour
     private void Awake()
     {
         OnHordeActivated += InitHorde;
-        if (!hordeTarget) hordeTarget = FindObjectOfType<LDJ_Player>().transform; 
+        if (!hordeTarget) hordeTarget = FindObjectOfType<LDJ_Player>().transform;
     }
 
     private void OnTriggerEnter(Collider _coll)
@@ -87,7 +87,8 @@ public class LDJ_GoblinsManager : MonoBehaviour
                 }
                 OnSpeedModified += _goblin.SetSpeed;
                 _goblin.OnAgentHit += HitHorde;
-                _goblin.OnHitPlayer += HitPlayer; 
+                _goblin.OnHitPlayer += HitPlayer;
+                if (LDJ_UIManager.Instance) _goblin.OnHitPlayer += LDJ_UIManager.Instance.ActivateFang;
                 OnPlayerHit += _goblin.StopMovement; 
                 if (i == 0)
                 {
