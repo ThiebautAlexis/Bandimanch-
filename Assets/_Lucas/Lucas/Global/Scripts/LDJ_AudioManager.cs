@@ -63,8 +63,11 @@ public class LDJ_AudioManager : MonoBehaviour
     // All the horde audio clips
     [Header("Horde Audios :")]
 
-    [SerializeField] private AudioClip goblinNoise = null;
-    public AudioClip GoblinNoise { get { return goblinNoise; } }
+    [SerializeField] private AudioClip[] goblinNoises = null;
+    public AudioClip[] GoblinNoises { get { return goblinNoises; } }
+
+    [SerializeField] private AudioClip[] goblinHurt = null; 
+    public AudioClip[] GoblinHurt { get { return goblinHurt; } }
     #endregion
 
     #region Interactable Elements

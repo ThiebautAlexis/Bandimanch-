@@ -95,8 +95,9 @@ public class LDJ_GoblinAgent : MonoBehaviour
     /// </summary>
     public void HitAgent()
     {
-        Debug.Log("Agent Hit"); 
-        OnAgentHit?.Invoke(); 
+        OnAgentHit?.Invoke();
+        if (!LDJ_AudioManager.Instance) return;
+        LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.GoblinHurt, transform.position); 
     }
 
     /// <summary>
@@ -107,6 +108,8 @@ public class LDJ_GoblinAgent : MonoBehaviour
     {
         OnHitPlayer?.Invoke();
         _playerHit.TakeDamage();
+        if (!LDJ_AudioManager.Instance) return;
+        LDJ_AudioManager.Instance.PlayAudio(LDJ_AudioManager.Instance.GoblinHurt, transform.position);
     }
 
     /// <summary>

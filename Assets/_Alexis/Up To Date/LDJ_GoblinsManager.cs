@@ -93,7 +93,7 @@ public class LDJ_GoblinsManager : MonoBehaviour
                 {
                     leader = _goblin;
                     _goblin.InitAgent(currentSpeed, hordeTarget.transform);
-                     
+                    
                 }
                 else 
                     _goblin.InitAgent(currentSpeed, leader.transform); 
