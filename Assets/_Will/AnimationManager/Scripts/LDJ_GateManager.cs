@@ -25,11 +25,11 @@ public class LDJ_GateManager : MonoBehaviour
     [SerializeField]
     Color actifColor;
     [SerializeField]
-    Color unactifColor;    
+    Color unactifColor;
     #endregion
     #region Player
     [SerializeField]
-    LDJ_Player playerAdventurer { get { return FindObjectOfType<LDJ_Player>(); } }
+    LDJ_Player playerAdventurer;
     #endregion
     #region InteractibleObject
     [SerializeField,Header("Interactible object")]
@@ -87,7 +87,7 @@ public class LDJ_GateManager : MonoBehaviour
 
     private void Start()
     {
-        if (!playerAdventurer) GetComponent<LDJ_Player>();
+        if (!playerAdventurer) playerAdventurer = FindObjectOfType<LDJ_Player>();
     }
     #endregion
 }
