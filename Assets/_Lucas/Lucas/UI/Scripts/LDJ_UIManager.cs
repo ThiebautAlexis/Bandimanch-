@@ -107,6 +107,9 @@ public class LDJ_UIManager : MonoBehaviour
     // The total weight text of the inventory
     [SerializeField] private TextMeshProUGUI totalInventoryWeight = null;
 
+    [Header("Fang Prefab")]
+    [SerializeField] private Animator fangAnimator;  
+
     [Header("Event System :")]
     // The event system of the canvas
     [SerializeField] private EventSystem eventSystem = null;
@@ -454,6 +457,14 @@ public class LDJ_UIManager : MonoBehaviour
 
         // Calls the menu event
         OnMenuOpened?.Invoke(_doOpen);
+    }
+    #endregion
+
+    #region Fang
+    public void ActivateFang()
+    {
+        if (!fangAnimator) return;
+        fangAnimator.SetTrigger("PlayAnimation"); 
     }
     #endregion
     #endregion
