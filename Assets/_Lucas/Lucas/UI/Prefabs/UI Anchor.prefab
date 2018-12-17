@@ -4676,7 +4676,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 130, y: 130}
-  m_Spacing: {x: 40, y: 40}
+  m_Spacing: {x: 20, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1383622641240448
@@ -5742,8 +5742,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "Conratulation !\nYou've managed to escape from the Labyrinth !\n\n\nWe
-    would like have a better ending, but time was running out...\n\n\n\tThanks you
+  m_text: "Congratulations !\nYou've managed to escape from the Labyrinth !\n\n\nWe
+    would like to have a better ending, but time was running out...\n\n\n\tThank you
     for playing !"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

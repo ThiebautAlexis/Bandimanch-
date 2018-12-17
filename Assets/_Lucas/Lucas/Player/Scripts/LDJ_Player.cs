@@ -487,7 +487,7 @@ public class LDJ_Player : MonoBehaviour
         }
 
         // Set the position of the aims cursor
-        aimsCursor.transform.position = Vector3.Lerp(aimsCursor.transform.position, transform.position + (new Vector3(lookX, .25f, lookY).normalized * 5), Time.deltaTime * 5);
+        aimsCursor.transform.position = Vector3.Lerp(aimsCursor.transform.position, transform.position + (new Vector3(lookX, .25f, lookY).normalized * 5), Time.deltaTime * 2);
     }
 
     // Makes the player move in a given direction
@@ -668,16 +668,16 @@ public class LDJ_Player : MonoBehaviour
         {
             case UpgradeType.Health:
                 maxHealth++;
-                health = maxHealth;
+                Health++;
                 break;
             case UpgradeType.Inventory:
-                maxObjectAmount++;
+                maxObjectAmount += 3;
                 break;
             case UpgradeType.Speed:
-                speed++;
+                speed ++;
                 break;
             case UpgradeType.Weight:
-                maxWeight++;
+                maxWeight += 3;
                 break;
             default:
                 break;
